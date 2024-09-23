@@ -3,6 +3,8 @@ using System;
 
 public partial class Player : RigidBody2D
 {
+	[Export]
+	public int speed = 400;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
