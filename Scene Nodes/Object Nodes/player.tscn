@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwmppwpjp1r7i"]
+
+[ext_resource type="Script" path="res://Scripts/player.cs" id="1_t4ycn"]
+[ext_resource type="Texture2D" uid="uid://bayymefigf4ey" path="res://icon.svg" id="2_amhed"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ct23j"]
+size = Vector2(100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cykvb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_amhed")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_t4ycn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ct23j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cykvb")
