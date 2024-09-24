@@ -5,11 +5,11 @@ public partial class player : CharacterBody2D
 {
 
 	[Export]
-	public const float moveVelocity = 100.0f;
+	public float moveVelocity = 100.0f;
 	public float jumpVelocity= -400.0f;
     int jumpCount=0;
     [Export]
-    bool jumpStatus = true;
+    bool jumpDouble = true;
 
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
@@ -21,7 +21,7 @@ public partial class player : CharacterBody2D
 
 
         //direction.X = Input.GetActionStrength("Right") - Input.GetActionStrength("Left");
-        if(IsOnFloor()&&jumpStatus==true)
+        if(IsOnFloor()&&jumpDouble==true)
         {
             jumpCount = 1;
         }
@@ -38,8 +38,15 @@ public partial class player : CharacterBody2D
         }
         //x axis movement
         float directionX = Input.GetAxis("Left", "Right");
-        velocity.X = directionX * moveVelocity;
-
+       
+        if(Input.IsActionPressed("Sprint"))
+        {
+            velocity.X = directionX * moveVelocity*2;
+        }
+        else
+        {
+            velocity.X = directionX * moveVelocity;
+        }
 
         Velocity = velocity;
         MoveAndSlide();
