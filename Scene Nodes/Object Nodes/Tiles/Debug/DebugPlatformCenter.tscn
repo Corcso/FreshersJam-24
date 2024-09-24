@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://4k86o2v5pste"]
+
+[ext_resource type="Texture2D" uid="uid://ci7xvxpn5m44o" path="res://Sprites/Debug/Platform 8 Center.png" id="1_kf1n7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcfxl"]
+size = Vector2(8, 8)
+
+[node name="DebugPlatformCenter" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kf1n7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hcfxl")
