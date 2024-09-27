@@ -6,10 +6,21 @@ public partial class player : CharacterBody2D
 
 	[Export]
 	public float moveVelocity = 100.0f;
+	public float dashVelocity = 1000.0f;
 	public float jumpVelocity= -400.0f;
+
+	float timeDash = 0;
 	int jumpCount=0;
+	bool dashStat = false;
 	[Export]
 	bool jumpDouble = true;
+	[Export]
+	bool dash = false;
+
+	//in ms
+	[Export]
+	public float dashCooldown = 2000.0f;
+
 
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
@@ -20,11 +31,13 @@ public partial class player : CharacterBody2D
 		velocity.Y += gravity * (float)delta;
 
 
+		float directionX = Input.GetAxis("Left", "Right");
 		//direction.X = Input.GetActionStrength("Right") - Input.GetActionStrength("Left");
-		if(IsOnFloor()&&jumpDouble==true)
+		if (IsOnFloor()&&jumpDouble==true)
 		{
 			jumpCount = 1;
 		}
+		
 		
 		if (Input.IsActionJustPressed("Jump")&&IsOnFloor())
 		{
@@ -37,7 +50,7 @@ public partial class player : CharacterBody2D
 			jumpCount--;
 		}
 		//x axis movement
-		float directionX = Input.GetAxis("Left", "Right");
+		
 	   
 		if(Input.IsActionPressed("Sprint"))
 		{
@@ -47,34 +60,26 @@ public partial class player : CharacterBody2D
 		{
 			velocity.X = directionX * moveVelocity;
 		}
-
+		if (Input.IsActionJustPressed("Dash") && timeDash + dashCooldown < Time.GetTicksMsec())
+		{
+			dash = true;
+			timeDash = Time.GetTicksMsec();
+		}
+		if (dash==true)
+		{
+			if (Time.GetTicksMsec() < timeDash + 200)
+			{
+				velocity.X = directionX * dashVelocity;
+			}
+			else
+			{
+				dash = false;
+			}
+		}
 		Velocity = velocity;
 		MoveAndSlide();
 
 
-		//Vector2 velocity = Velocity;
+		}
 
-		//// Add the gravity.
-		//if (!IsOnFloor())
-		//	velocity.Y += gravity * (float)delta;
-
-		//// Handle Jump.
-		//if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
-		//	velocity.Y = JumpVelocity;
-
-		//// Get the input direction and handle the movement/deceleration.
-		//// As good practice, you should replace UI actions with custom gameplay actions.
-		//Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
-		//if (direction != Vector2.Zero)
-		//{
-		//	velocity.X = direction.X * Speed;
-		//}
-		//else
-		//{
-		//	velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-		//}
-
-		//Velocity = velocity;
-		//MoveAndSlide();
-	}
 }
