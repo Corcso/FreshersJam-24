@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://v5e5up5oo82w"]
+
+[ext_resource type="Shape2D" uid="uid://dcdv8e1lv7ggb" path="res://Scene Nodes/Object Nodes/Tiles/Templates/32x32Square.tres" id="1_sb110"]
+[ext_resource type="OccluderPolygon2D" uid="uid://1u6830b8js2a" path="res://Scene Nodes/Object Nodes/Tiles/Templates/32x32Occluder.tres" id="2_d7fsw"]
+
+[node name="Template32x32Tile" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("1_sb110")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = ExtResource("2_d7fsw")
