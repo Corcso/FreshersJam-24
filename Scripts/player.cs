@@ -8,6 +8,7 @@ public partial class player : CharacterBody2D
 	public float moveVelocity = 100.0f;
 	public float dashVelocity = 1000.0f;
 	public float jumpVelocity= -400.0f;
+
 	float timeDash = 0;
 	int jumpCount=0;
 	bool dashStat = false;
@@ -20,6 +21,7 @@ public partial class player : CharacterBody2D
 	[Export]
 	public float dashCooldown = 2000.0f;
 
+
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 	
@@ -27,6 +29,7 @@ public partial class player : CharacterBody2D
 	{
 		Vector2 velocity = Velocity;
 		velocity.Y += gravity * (float)delta;
+
 
 		float directionX = Input.GetAxis("Left", "Right");
 		//direction.X = Input.GetActionStrength("Right") - Input.GetActionStrength("Left");
@@ -78,4 +81,5 @@ public partial class player : CharacterBody2D
 
 
 		}
+
 }
