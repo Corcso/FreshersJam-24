@@ -16,6 +16,10 @@ public partial class player : CharacterBody2D
 	[Export]
 	bool dash = false;
 
+	//in ms
+	[Export]
+	public float dashCooldown = 2000.0f;
+
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 	
@@ -53,7 +57,7 @@ public partial class player : CharacterBody2D
 		{
 			velocity.X = directionX * moveVelocity;
 		}
-		if (Input.IsActionJustPressed("Dash")/*&&IsOnFloor()==false*/)
+		if (Input.IsActionJustPressed("Dash") && timeDash + dashCooldown < Time.GetTicksMsec())
 		{
 			dash = true;
 			timeDash = Time.GetTicksMsec();
