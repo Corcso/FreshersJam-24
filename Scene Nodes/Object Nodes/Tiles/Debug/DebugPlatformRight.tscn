@@ -6,6 +6,7 @@
 size = Vector2(8, 8)
 
 [node name="DebugPlatformRight" type="StaticBody2D"]
+scale = Vector2(2, 2)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_3tt7h")

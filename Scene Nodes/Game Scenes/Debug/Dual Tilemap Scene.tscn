@@ -10,8 +10,7 @@
 texture_filter = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -128)
-zoom = Vector2(2, 2)
+position = Vector2(0, -256)
 
 [node name="16x16 Tilemap" type="TileMap" parent="."]
 tile_set = ExtResource("1_yicpg")
@@ -24,7 +23,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(-327694, 0, 131072, -327689, 0, 196608, -327693, 0, 65536, -327692, 0, 65536, -327691, 0, 65536, -327690, 0, 65536)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(-59, -62)
+position = Vector2(-125, -122)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("CircleShape2D_xhbam")
