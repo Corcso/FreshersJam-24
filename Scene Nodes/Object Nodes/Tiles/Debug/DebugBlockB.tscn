@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1ad1frma716j"]
+
+[ext_resource type="Texture2D" uid="uid://bqkelyrooyhrn" path="res://Sprites/Debug/Block B.png" id="1_ty81c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yeyca"]
+size = Vector2(16, 16)
+
+[node name="DebugBlockB" type="StaticBody2D"]
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ty81c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yeyca")
+debug_color = Color(1, 1, 1, 0)
