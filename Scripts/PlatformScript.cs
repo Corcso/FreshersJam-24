@@ -10,11 +10,14 @@ public partial class PlatformScript : StaticBody2D
     
 	//public CharacterBody2D Player;
     [Export] float crumbleTime = 3.5f;
-	float deltaTime = 0.0f;
+	double deltaTime = 0.0f;
+	double bounceVelocity = -0.0f;
 
 	RandomNumberGenerator rng;
 
     [Export] PlatformMode currentMode = PlatformMode.UNDECIDED;
+
+	[Export] bool isAlive = true;
 
 
 	// Called when the node enters the scene tree for the first time.
@@ -27,33 +30,47 @@ public partial class PlatformScript : StaticBody2D
 	public override void _Process(double delta)
 	{
 		//collis
+		deltaTime += delta;
+
+		if (deltaTime > crumbleTime)
+		{
+			isAlive = false;
+		}
 	}
 
 	public void On_Platform_Body_Enter_Player(CharacterBody2D player)
 	{
-		if (currentNode == PlatformMode.UNDECIDED)
+		if (currentMode == PlatformMode.UNDECIDED)
 		{
 			int random = rng.RandiRange(1, 2);
 
 			if (random == 1)
 			{
-				currentNode = PlatformMode.BOUNCE;
+				currentMode = PlatformMode.BOUNCE;
 			}
 			else
 			{
-				currentNode = PlatformMode.CRUMBLE;
+				currentMode = PlatformMode.CRUMBLE;
 
 			}
 		}
 
-		else if (currentNode == PlatformMode.BOUNCE)
+		else if (currentMode == PlatformMode.BOUNCE)
 		{
 			//Make the player go bouncy!
+			bounceVelocity = -500.0f;
+			
 		}
-		else
-		{
+	//	else
+	//	{
+	//		if (deltaTime > crumbleTime)
+	//		{
+				//Kill platform
+	//			isAlive = false;
+	//			deltaTime = 0.0f;
+	//		}
 			//Crumble that shit
-		}
+	//	}
 		GD.Print("Collision has happened! \n");
 	}
 }
