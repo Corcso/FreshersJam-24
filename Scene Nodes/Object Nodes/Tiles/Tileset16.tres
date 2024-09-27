@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://7yw0xpyiuox5" path="res://Scene Nodes/Object Nodes/Tiles/Debug/DebugBlockC.tscn" id="3_y4827"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_y3ubj"]
-resource_name = "16x16 Tiles"
+resource_name = "Debug"
 scenes/1/scene = ExtResource("1_wgdg1")
 scenes/2/scene = ExtResource("2_rbxcp")
 scenes/3/scene = ExtResource("3_y4827")
