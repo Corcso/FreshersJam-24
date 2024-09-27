@@ -6,12 +6,15 @@ using System;
 public partial class PlatformScript : StaticBody2D
 {
 
+	//Mode for platform, undecided is undefined platform, bounce is a bouncing platform, crumble is a crumbling platform (which dies in 3.5 seconds, can be changed if need be)
     enum PlatformMode { UNDECIDED, BOUNCE, CRUMBLE };
     
 	//public CharacterBody2D Player;
     [Export] float crumbleTime = 3.5f;
 	double deltaTime = 0.0f;
-	double bounceVelocity = -0.0f;
+	//Placeholder bounce velocity
+	double bounceVelocity = 0.0f;
+
 
 	RandomNumberGenerator rng;
 
@@ -35,6 +38,7 @@ public partial class PlatformScript : StaticBody2D
 		if (deltaTime > crumbleTime)
 		{
 			isAlive = false;
+			deltaTime = 0.0f;
 		}
 	}
 
