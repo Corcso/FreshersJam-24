@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct512og7ymnw8"]
+
+[ext_resource type="Texture2D" uid="uid://dmmunr65o6a2" path="res://Sprites/Debug/Platform 8 Right.png" id="1_3tt7h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xlpa8"]
+size = Vector2(8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xiv11"]
+polygon = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
+
+[node name="DebugPlatformRight" type="StaticBody2D"]
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3tt7h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xlpa8")
+debug_color = Color(1, 1, 1, 0)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_xiv11")
