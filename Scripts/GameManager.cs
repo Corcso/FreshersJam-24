@@ -17,8 +17,8 @@ public partial class GameManager : Node
 		gameScene = ResourceLoader.Load<PackedScene>("res://Scene Nodes/Game Scenes/GameScene.tscn");
 		activeMenuScene = GetTree().Root.GetNode<Node2D>("./MainMenu");
 
-		LoadGameScene();
-		LoadMenuScene();
+		//LoadGameScene();
+		//LoadMenuScene();
 
     }
 

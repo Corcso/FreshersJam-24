@@ -5,9 +5,9 @@ using System.Net.NetworkInformation;
 public partial class PlayerCamera : Camera2D
 {
 	
-	Node2D dude;
+	[Export] Node2D dude;
 
-	const int ROOM_HEIGHT = 500;
+	const int ROOM_HEIGHT = 512-32;
 
 	float camSpeed;
 
@@ -16,7 +16,7 @@ public partial class PlayerCamera : Camera2D
 	{
 		Vector2 pos = Position;
 		
-		dude = GetNode<Node2D>("../dude");
+		
 
 		pos = Position;
 
