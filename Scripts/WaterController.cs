@@ -34,18 +34,20 @@ public partial class WaterController : Area2D
 		float playerRoom = ((float)Math.Floor(-player.Position.Y / ROOM_HEIGHT));
 		float waterRoom = ((float)Math.Floor(-Position.Y / ROOM_HEIGHT));
 
-		waterSpeed = -10 * (float)delta;
+		waterSpeed = -20 * (float)delta;
 
 		if (playerRoom > waterRoom)
 		{
 
-			waterSpeed = -(playerRoom - waterRoom) * 10 * (float)delta;
+			waterSpeed = -(playerRoom - waterRoom) * 100 * (float)delta;
 
 		}
 
 		pos.Y += waterSpeed;
 
-		Position = pos;	
+		Position = pos;
+
+		GD.Print(waterSpeed);
 	}
 
 	private void Collided(Node2D body) {
