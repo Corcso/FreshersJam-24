@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7sw8xdtvg6p2"]
+
+
+[gd_scene load_steps=6 format=3 uid="uid://bep2qvoidcbnh"]
 
 [ext_resource type="Texture2D" uid="uid://bayymefigf4ey" path="res://icon.svg" id="1_1kdl2"]
-[ext_resource type="Texture2D" path="res://Assests/BrickWall_001.png" id="1_awgcs"]
+[ext_resource type="Texture2D" uid="uid://84jv488in3bq" path="res://Assests/BrickWall_001.png" id="1_awgcs"]
+
 [ext_resource type="Script" path="res://Scene Nodes/Game Scenes/dude.cs" id="2_8wksv"]
 [ext_resource type="Script" path="res://PlayerCamera.cs" id="2_wp4yj"]
 
