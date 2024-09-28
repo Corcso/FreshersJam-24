@@ -69,7 +69,7 @@ public partial class enemyBasic : RigidBody2D
         player possiblePlayer = body.GetParent().GetNodeOrNull<player>("./" + body.Name);
         if (possiblePlayer != null)
         {
-            if (possiblePlayer.GlobalPosition.Y > GlobalPosition.Y && possiblePlayer.Velocity.Y < LinearVelocity.Y)
+            if (possiblePlayer.GlobalPosition.Y > GlobalPosition.Y && possiblePlayer.LinearVelocity.Y > LinearVelocity.Y)
             {
                 Debug.Print("enemy should die");
             }
