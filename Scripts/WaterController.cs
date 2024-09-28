@@ -46,8 +46,6 @@ public partial class WaterController : Area2D
 		pos.Y += waterSpeed;
 
 		Position = pos;
-
-		GD.Print(waterSpeed);
 	}
 
 	private void Collided(Node2D body) {
