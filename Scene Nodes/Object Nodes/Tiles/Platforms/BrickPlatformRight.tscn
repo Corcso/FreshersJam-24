@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://drljrex5km1kq"]
+
+[ext_resource type="Shape2D" uid="uid://dvnc57rj8vec3" path="res://Scene Nodes/Object Nodes/Tiles/Templates/16x16Square.tres" id="1_xbtg2"]
+[ext_resource type="Texture2D" uid="uid://m3aldd5d1fod" path="res://Sprites/Tiles/RegularPlatform_Right_001.png" id="2_2uqcl"]
+[ext_resource type="OccluderPolygon2D" uid="uid://cw4yypop555po" path="res://Scene Nodes/Object Nodes/Tiles/Templates/16x16Occluder.tres" id="3_8xlry"]
+
+[node name="Template16x16TileCollide" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("1_xbtg2")
+debug_color = Color(1, 1, 1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2uqcl")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = ExtResource("3_8xlry")

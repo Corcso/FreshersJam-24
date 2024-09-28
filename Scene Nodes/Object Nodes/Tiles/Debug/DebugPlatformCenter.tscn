@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://4k86o2v5pste"]
+[gd_scene load_steps=5 format=3 uid="uid://4k86o2v5pste"]
 
 [ext_resource type="Texture2D" uid="uid://ci7xvxpn5m44o" path="res://Sprites/Debug/Platform 8 Center.png" id="1_kf1n7"]
+[ext_resource type="Script" path="res://Scripts/BouncePlatformScript.cs" id="1_ylw13"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hcfxl"]
 size = Vector2(8, 8)
@@ -9,7 +10,7 @@ size = Vector2(8, 8)
 polygon = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 
 [node name="DebugPlatformCenter" type="StaticBody2D"]
-scale = Vector2(2, 2)
+collision_layer = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_kf1n7")
@@ -20,3 +21,12 @@ debug_color = Color(1, 1, 1, 0)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_k3yo0")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_ylw13")
+currentMode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(1.1, 1.1)
+shape = SubResource("RectangleShape2D_hcfxl")
+debug_color = Color(1, 1, 1, 0)

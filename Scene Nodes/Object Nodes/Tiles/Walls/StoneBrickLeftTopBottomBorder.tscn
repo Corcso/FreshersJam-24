@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgxxfxxyt62jt"]
+
+[ext_resource type="Texture2D" uid="uid://d1ujpt82jfghv" path="res://Sprites/Tiles/BrickWallEdge_LeftCorner_001.png" id="1_eolxb"]
+[ext_resource type="Shape2D" uid="uid://dcdv8e1lv7ggb" path="res://Scene Nodes/Object Nodes/Tiles/Templates/32x32Square.tres" id="2_op7yx"]
+
+[node name="Template32x32Tile" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_eolxb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("2_op7yx")
+debug_color = Color(1, 1, 1, 0)

@@ -21,9 +21,15 @@ public partial class player : CharacterBody2D
 	[Export]
 	public float dashCooldown = 2000.0f;
 
+	[Export] AudioStreamPlayer jumpSound;
+	[Export] AudioStreamPlayer dashSound;
+	[Export] AudioStreamPlayer doubleJumpSound;
 
-	// Get the gravity from the project settings to be synced with RigidBody nodes.
-	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
+	bool bounceMe;
+	float bounceEfficiency;
+
+    // Get the gravity from the project settings to be synced with RigidBody nodes.
+    public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 	
 	public override void _PhysicsProcess(double delta)
 	{
@@ -42,17 +48,32 @@ public partial class player : CharacterBody2D
 		if (Input.IsActionJustPressed("Jump")&&IsOnFloor())
 		{
 			velocity.Y = jumpVelocity;
+			jumpSound.Play();
 			
 		}
-		else if (Input.IsActionJustPressed("Jump")&&jumpCount>0)
+        else if (Input.IsActionJustPressed("Jump")&&jumpCount>0)
 		{
 			velocity.Y = jumpVelocity;
 			jumpCount--;
+			doubleJumpSound.Play();
 		}
-		//x axis movement
-		
-	   
-		if(Input.IsActionPressed("Sprint"))
+
+        // Bounce
+        if (bounceMe)
+        {
+			// Bounce us
+            velocity.Y = -velocity.Y * bounceEfficiency;
+			// Set bounce to false
+            bounceMe = false;
+			// Also allow double jump again
+			jumpCount = 1;
+        }
+        
+
+        //x axis movement
+
+
+        if (Input.IsActionPressed("Sprint"))
 		{
 			velocity.X = directionX * moveVelocity*2;
 		}
@@ -60,7 +81,7 @@ public partial class player : CharacterBody2D
 		{
 			velocity.X = directionX * moveVelocity;
 		}
-		if (Input.IsActionJustPressed("Dash") && timeDash + dashCooldown < Time.GetTicksMsec())
+		if (Input.IsActionJustPressed("Dash") && timeDash + dashCooldown < Time.GetTicksMsec() && !IsOnFloor() && directionX != 0)
 		{
 			dash = true;
 			timeDash = Time.GetTicksMsec();
@@ -70,6 +91,7 @@ public partial class player : CharacterBody2D
 			if (Time.GetTicksMsec() < timeDash + 200)
 			{
 				velocity.X = directionX * dashVelocity;
+				dashSound.Play();
 			}
 			else
 			{
@@ -82,4 +104,10 @@ public partial class player : CharacterBody2D
 
 		}
 
+	public void BouncePlayer(float bounceEfficiency) {
+		// Set bounce me true, will be handled next update
+		bounceMe = true;
+		// Set the bounce efficiency
+		this.bounceEfficiency = bounceEfficiency;
+	}
 }
