@@ -9,20 +9,18 @@ public partial class PlayerCamera : Camera2D
 
 	const int ROOM_HEIGHT = 512-32;
 
+	float offset = 16;
+
 	float camSpeed;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		Vector2 pos = Position;
-		
-		
 
 		pos = Position;
 
 		pos.X = dude.Position.X;
-
-		//pos.Y = ROOM_HEIGHT / 2;
 
 		Position = pos;
 	}
@@ -34,15 +32,10 @@ public partial class PlayerCamera : Camera2D
 
 		camSpeed = 5 * (float)delta;
 
-		float targetY = -((float)Math.Floor(-dude.Position.Y / ROOM_HEIGHT) * ROOM_HEIGHT + (ROOM_HEIGHT / 2));
-
+		float targetY = -((float)Math.Floor(-dude.Position.Y / ROOM_HEIGHT) * ROOM_HEIGHT + (ROOM_HEIGHT / 2) + offset);
 
 		pos.Y += (targetY - pos.Y) * camSpeed;
-
-
-		GD.Print(targetY);
 		
-
 		Position = pos;
 
 	}
