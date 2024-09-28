@@ -14,8 +14,13 @@ public partial class GameManager : Node
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		gameScene = ResourceLoader.Load<PackedScene>("res://Game Scenes/GameScene.tscn");
-	}
+		gameScene = ResourceLoader.Load<PackedScene>("res://Scene Nodes/Game Scenes/GameScene.tscn");
+		activeMenuScene = GetTree().Root.GetNode<Node2D>("./MainMenu");
+
+		LoadGameScene();
+		LoadMenuScene();
+
+    }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
@@ -24,6 +29,7 @@ public partial class GameManager : Node
 
 	public void LoadGameScene() {
 		activeGameScene = gameScene.Instantiate<Node2D>();
+        GetTree().Root.CallDeferred(Node.MethodName.AddChild, activeGameScene);
 		activeMenuScene.Hide();
 	}
 
