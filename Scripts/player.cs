@@ -25,9 +25,11 @@ public partial class player : CharacterBody2D
 	[Export] AudioStreamPlayer dashSound;
 	[Export] AudioStreamPlayer doubleJumpSound;
 
+	bool bounceMe;
+	float bounceEfficiency;
 
-	// Get the gravity from the project settings to be synced with RigidBody nodes.
-	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
+    // Get the gravity from the project settings to be synced with RigidBody nodes.
+    public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 	
 	public override void _PhysicsProcess(double delta)
 	{
@@ -49,16 +51,29 @@ public partial class player : CharacterBody2D
 			jumpSound.Play();
 			
 		}
-		else if (Input.IsActionJustPressed("Jump")&&jumpCount>0)
+        else if (Input.IsActionJustPressed("Jump")&&jumpCount>0)
 		{
 			velocity.Y = jumpVelocity;
 			jumpCount--;
 			doubleJumpSound.Play();
 		}
-		//x axis movement
-		
-	   
-		if(Input.IsActionPressed("Sprint"))
+
+        // Bounce
+        if (bounceMe)
+        {
+			// Bounce us
+            velocity.Y = -velocity.Y * bounceEfficiency;
+			// Set bounce to false
+            bounceMe = false;
+			// Also allow double jump again
+			jumpCount = 1;
+        }
+        
+
+        //x axis movement
+
+
+        if (Input.IsActionPressed("Sprint"))
 		{
 			velocity.X = directionX * moveVelocity*2;
 		}
@@ -89,4 +104,10 @@ public partial class player : CharacterBody2D
 
 		}
 
+	public void BouncePlayer(float bounceEfficiency) {
+		// Set bounce me true, will be handled next update
+		bounceMe = true;
+		// Set the bounce efficiency
+		this.bounceEfficiency = bounceEfficiency;
+	}
 }

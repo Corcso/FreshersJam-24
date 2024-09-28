@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://hpcxllsil4j" path="res://Scene Nodes/Object Nodes/Tiles/Tileset8.tres" id="2_frsy3"]
 [ext_resource type="SpriteFrames" path="res://Sprites/WaterAnimation.tres" id="2_x113j"]
 [ext_resource type="AudioStream" uid="uid://drlkx4tdjs71t" path="res://Audio/eternalscreaming render 001.wav" id="3_0rlsp"]
-[ext_resource type="PackedScene" uid="uid://6svb3fqhltxe" path="res://Scene Nodes/Object Nodes/player.tscn" id="3_in6fc"]
+[ext_resource type="PackedScene" path="res://Scene Nodes/Object Nodes/player.tscn" id="3_in6fc"]
 [ext_resource type="AudioStream" uid="uid://d1vxirfp7uly7" path="res://Audio/DripAmbiant.wav" id="6_lo0m6"]
 [ext_resource type="AudioStream" uid="uid://bhdgjt3y0i7kt" path="res://Audio/BubblingAmbiant.wav" id="7_mn362"]
 [ext_resource type="AudioStream" uid="uid://omv8206c0shj" path="res://Audio/Calm music.wav" id="8_cj4u1"]

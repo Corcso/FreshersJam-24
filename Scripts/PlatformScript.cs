@@ -3,7 +3,7 @@ using System;
 
 
 
-public partial class PlatformScript : StaticBody2D
+public partial class PlatformScript : Area2D
 {
 
 	//Mode for platform, undecided is undefined platform, bounce is a bouncing platform, crumble is a crumbling platform (which dies in 3.5 seconds, can be changed if need be)
@@ -22,11 +22,15 @@ public partial class PlatformScript : StaticBody2D
 
 	[Export] bool isAlive = true;
 
+	[Export] float bounceEfficiency = 0.9f;
+
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		rng = new RandomNumberGenerator();
+
+		BodyEntered += (Node2D body) => On_Platform_Body_Enter(body);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -42,39 +46,43 @@ public partial class PlatformScript : StaticBody2D
 		}
 	}
 
-	public void On_Platform_Body_Enter_Player(CharacterBody2D player)
+	public void On_Platform_Body_Enter(Node2D collider)
 	{
-		if (currentMode == PlatformMode.UNDECIDED)
+		player potentialPlayer = collider.GetParent().GetNodeOrNull<player>("./Player");
+        if (potentialPlayer != null)
 		{
-			int random = rng.RandiRange(1, 2);
-
-			if (random == 1)
+			if (currentMode == PlatformMode.UNDECIDED)
 			{
-				currentMode = PlatformMode.BOUNCE;
+				int random = rng.RandiRange(1, 2);
+
+				if (random == 1)
+				{
+					currentMode = PlatformMode.BOUNCE;
+				}
+				else
+				{
+					currentMode = PlatformMode.CRUMBLE;
+
+				}
 			}
-			else
+
+			else if (currentMode == PlatformMode.BOUNCE)
 			{
-				currentMode = PlatformMode.CRUMBLE;
-
-			}
-		}
-
-		else if (currentMode == PlatformMode.BOUNCE)
-		{
-			//Make the player go bouncy!
-			bounceVelocity = -500.0f;
-			
-		}
-	//	else
-	//	{
-	//		if (deltaTime > crumbleTime)
-	//		{
-				//Kill platform
-	//			isAlive = false;
-	//			deltaTime = 0.0f;
-	//		}
+				//Make the player go bouncy!
+				potentialPlayer.BouncePlayer(bounceEfficiency);
+            }
+			//	else
+			//	{
+			//		if (deltaTime > crumbleTime)
+			//		{
+			//Kill platform
+			//			isAlive = false;
+			//			deltaTime = 0.0f;
+			//		}
 			//Crumble that shit
-	//	}
-		GD.Print("Collision has happened! \n");
+			//	}
+			GD.Print("Collision has happened! \n");
+		}
+		else GD.Print("Not Player");
 	}
 }

@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://1uyao7ffr6ga"]
+[gd_scene load_steps=4 format=3 uid="uid://bpjgcrjjmgtdy"]
 
-[ext_resource type="PackedScene" uid="uid://6svb3fqhltxe" path="res://Scene Nodes/Object Nodes/player.tscn" id="1_ko8sl"]
+[ext_resource type="PackedScene" path="res://Scene Nodes/Object Nodes/player.tscn" id="1_ko8sl"]
 [ext_resource type="PackedScene" path="res://Scene Nodes/Object Nodes/enemyBasic.tscn" id="2_nxv3f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kcbw6"]
