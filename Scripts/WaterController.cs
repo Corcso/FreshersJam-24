@@ -7,6 +7,7 @@ public partial class WaterController : Area2D
 	// Called when the node enters the scene tree for the first time.
 	GameManager gameManager;
 	player player;
+	AudioStreamPlayer2D audioStreamPlayer;
 
     float waterSpeed;
 
@@ -18,6 +19,8 @@ public partial class WaterController : Area2D
 
 		player = GetNode<player>("../Player");
 
+		audioStreamPlayer = GetNode<AudioStreamPlayer2D>("./AudioStreamPlayer2D");
+
 		BodyEntered += (Node2D body) => Collided(body);
     }
 
@@ -25,6 +28,8 @@ public partial class WaterController : Area2D
 	public override void _Process(double delta)
 	{
 		Vector2 pos = Position;
+
+		audioStreamPlayer.Position = new Vector2(player.Position.X, audioStreamPlayer.Position.Y);
 
 		float playerRoom = ((float)Math.Floor(-player.Position.Y / ROOM_HEIGHT));
 		float waterRoom = ((float)Math.Floor(-Position.Y / ROOM_HEIGHT));
