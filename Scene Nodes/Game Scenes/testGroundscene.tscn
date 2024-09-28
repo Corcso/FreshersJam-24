@@ -19,4 +19,5 @@ shape = SubResource("RectangleShape2D_kcbw6")
 debug_color = Color(0, 0.6, 0.701961, 0.490196)
 
 [node name="enemyBasic" parent="." instance=ExtResource("2_nxv3f")]
-position = Vector2(810, 181)
+position = Vector2(823, 194)
+moveLeft = true
