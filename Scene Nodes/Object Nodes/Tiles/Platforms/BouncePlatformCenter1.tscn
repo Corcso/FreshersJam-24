@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://engy0vaww5qb"]
 
-[ext_resource type="Script" path="res://Scripts/PlatformScript.cs" id="1_84fcn"]
+[ext_resource type="Script" path="res://Scripts/BouncePlatformScript.cs" id="1_84fcn"]
 [ext_resource type="Shape2D" uid="uid://dvnc57rj8vec3" path="res://Scene Nodes/Object Nodes/Tiles/Templates/16x16Square.tres" id="2_nou0w"]
 [ext_resource type="Texture2D" uid="uid://bkoryl36mx3nl" path="res://Sprites/Tiles/BouncyPlatform_MiddleLeft_001.png" id="3_21mhi"]
 [ext_resource type="OccluderPolygon2D" uid="uid://cw4yypop555po" path="res://Scene Nodes/Object Nodes/Tiles/Templates/16x16Occluder.tres" id="4_fp84t"]

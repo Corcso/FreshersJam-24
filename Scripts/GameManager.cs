@@ -16,10 +16,6 @@ public partial class GameManager : Node
 	{
 		gameScene = ResourceLoader.Load<PackedScene>("res://Scene Nodes/Game Scenes/GameScene.tscn");
 		activeMenuScene = GetTree().Root.GetNode<Node2D>("./MainMenu");
-
-		//LoadGameScene();
-		//LoadMenuScene();
-
     }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
