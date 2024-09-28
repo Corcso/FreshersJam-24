@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/player.cs" id="1_t4ycn"]
 [ext_resource type="Texture2D" uid="uid://bayymefigf4ey" path="res://icon.svg" id="2_amhed"]
-[ext_resource type="AudioStream" path="res://Audio/Jump.wav" id="3_vccq4"]
-[ext_resource type="AudioStream" path="res://Audio/Dash.mp3" id="4_jr018"]
+[ext_resource type="AudioStream" uid="uid://cmjixi2koq2p2" path="res://Audio/Jump.wav" id="3_vccq4"]
+[ext_resource type="AudioStream" uid="uid://bqqfok1p2dmip" path="res://Audio/Dash.mp3" id="4_jr018"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ct23j"]
 size = Vector2(100, 100)
@@ -40,3 +40,6 @@ stream = ExtResource("4_jr018")
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_vccq4")
 pitch_scale = 1.43
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true

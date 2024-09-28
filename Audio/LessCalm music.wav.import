@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://vvfe5ga8gcem"
+path="res://.godot/imported/LessCalm music.wav-e1842b84214aa0e3867b5a04e2e6fbee.sample"
+
+[deps]
+
+source_file="res://Audio/LessCalm music.wav"
+dest_files=["res://.godot/imported/LessCalm music.wav-e1842b84214aa0e3867b5a04e2e6fbee.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
