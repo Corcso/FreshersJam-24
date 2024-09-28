@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=12 format=3 uid="uid://b1eflxxec7fbj"]
+[gd_resource type="TileSet" load_steps=14 format=3 uid="uid://b1eflxxec7fbj"]
 
 [ext_resource type="PackedScene" uid="uid://bvx8oy03lka50" path="res://Scene Nodes/Object Nodes/Tiles/Walls/StoneBrickLeftBorder.tscn" id="1_ga7gc"]
 [ext_resource type="PackedScene" uid="uid://d1a8vxmiupnj8" path="res://Scene Nodes/Object Nodes/Tiles/Debug/DebugBlockA.tscn" id="1_wgdg1"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dok6axyycyfxi" path="res://Scene Nodes/Object Nodes/Tiles/Walls/StoneBrickRightBorder.tscn" id="4_uc6lk"]
 [ext_resource type="PackedScene" uid="uid://b2n8hivmmbudi" path="res://Scene Nodes/Object Nodes/Tiles/Walls/StoneBrickRighTopBottomBorder.tscn" id="5_eyb3i"]
 [ext_resource type="PackedScene" uid="uid://ciwqdkmxrjiu5" path="res://Scene Nodes/Object Nodes/Tiles/Walls/StoneBrickTopBottomBorder.tscn" id="6_jr2r2"]
+[ext_resource type="Texture2D" uid="uid://b28ofu6e4wfdv" path="res://Sprites/Tiles/Backgrounds.tres" id="10_q06f3"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_qki2g"]
 resource_name = "Wall Tiles"
@@ -25,7 +26,13 @@ scenes/1/scene = ExtResource("1_wgdg1")
 scenes/2/scene = ExtResource("2_rbxcp")
 scenes/3/scene = ExtResource("3_y4827")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bafsd"]
+texture = ExtResource("10_q06f3")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
 [resource]
 tile_size = Vector2i(32, 32)
 sources/1 = SubResource("TileSetScenesCollectionSource_y3ubj")
 sources/0 = SubResource("TileSetScenesCollectionSource_qki2g")
+sources/2 = SubResource("TileSetAtlasSource_bafsd")

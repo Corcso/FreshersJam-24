@@ -1,13 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://i721cigdimlt"]
 
-[ext_resource type="Script" path="res://Scripts/BouncePlatformScript.cs" id="1_4bqv4"]
+[ext_resource type="PhysicsMaterial" uid="uid://cq7gwpeduad1n" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/BouncyMaterial.tres" id="1_4sp7b"]
 [ext_resource type="Shape2D" uid="uid://dvnc57rj8vec3" path="res://Scene Nodes/Object Nodes/Tiles/Templates/16x16Square.tres" id="2_xi0hh"]
 [ext_resource type="Texture2D" uid="uid://cf3vjwdjfaivf" path="res://Sprites/Tiles/BouncyPlatform_Left_001.png" id="3_s6s72"]
 [ext_resource type="OccluderPolygon2D" uid="uid://cw4yypop555po" path="res://Scene Nodes/Object Nodes/Tiles/Templates/16x16Occluder.tres" id="4_fntvp"]
 
-[node name="Template16x16TileCollide" type="Area2D"]
-script = ExtResource("1_4bqv4")
-currentMode = 1
+[node name="Template16x16TileCollide" type="StaticBody2D"]
+physics_material_override = ExtResource("1_4sp7b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = ExtResource("2_xi0hh")
