@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://cm1yr40el67t1"]
+
+[ext_resource type="Script" path="res://Scripts/enemyBasic.cs" id="1_rxl14"]
+[ext_resource type="Texture2D" uid="uid://bim5jj0d1jhs7" path="res://Sprites/tempgoomba.png" id="2_uqewy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrt8y"]
+atlas = ExtResource("2_uqewy")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbage"]
+atlas = ExtResource("2_uqewy")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6qniw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrt8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbage")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bf7uc"]
+size = Vector2(32, 32)
+
+[node name="enemyBasic" type="CharacterBody2D"]
+script = ExtResource("1_rxl14")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_6qniw")
+frame_progress = 0.351716
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bf7uc")
