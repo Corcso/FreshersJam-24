@@ -17,7 +17,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ct23j"]
-size = Vector2(128, 128)
+size = Vector2(32, 38)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ngd66"]
 
@@ -31,6 +31,8 @@ dashSound = NodePath("AudioStreamPlayer2")
 doubleJumpSound = NodePath("AudioStreamPlayer3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3.1, -6.1)
+scale = Vector2(0.248438, 0.295313)
 sprite_frames = SubResource("SpriteFrames_cykvb")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -47,9 +49,10 @@ pitch_scale = 1.43
 current = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -6)
 shape = SubResource("RectangleShape2D_ct23j")
 
 [node name="FloorCaster" type="ShapeCast2D" parent="."]
-position = Vector2(-64, 65)
+position = Vector2(-13, 13)
 shape = SubResource("RectangleShape2D_ngd66")
-target_position = Vector2(128, 0)
+target_position = Vector2(32, 0)
