@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://hpcxllsil4j"]
+[gd_resource type="TileSet" load_steps=20 format=3 uid="uid://hpcxllsil4j"]
 
 [ext_resource type="PackedScene" uid="uid://4k86o2v5pste" path="res://Scene Nodes/Object Nodes/Tiles/Debug/DebugPlatformCenter.tscn" id="1_08hqu"]
 [ext_resource type="PackedScene" uid="uid://bwdkut0kouyrs" path="res://Scene Nodes/Object Nodes/Tiles/Debug/DebugPlatformLeft.tscn" id="2_s17mk"]
@@ -11,6 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://b3y4v5lyqtuvp" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/BouncePlatformCenter2.tscn" id="9_pc16b"]
 [ext_resource type="PackedScene" uid="uid://i721cigdimlt" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/BouncePlatformLeft.tscn" id="10_tvlxy"]
 [ext_resource type="PackedScene" uid="uid://cglfjw6x7kk63" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/BouncePlatformRight.tscn" id="11_xrtk7"]
+[ext_resource type="PackedScene" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/CrumblyPlatformLeft.tscn" id="12_tp7on"]
+[ext_resource type="PackedScene" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/CrumblyPlatformCenter1.tscn" id="13_pmhhv"]
+[ext_resource type="PackedScene" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/CrumblyPlatformCenter2.tscn" id="14_b1l6j"]
+[ext_resource type="PackedScene" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/CrumblyPlatformRight.tscn" id="15_c5ntx"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_fcmb2"]
 resource_name = "Debug"
@@ -32,7 +36,15 @@ scenes/2/scene = ExtResource("9_pc16b")
 scenes/3/scene = ExtResource("10_tvlxy")
 scenes/4/scene = ExtResource("11_xrtk7")
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_61vy0"]
+resource_name = "Crumbly Platform"
+scenes/1/scene = ExtResource("12_tp7on")
+scenes/2/scene = ExtResource("13_pmhhv")
+scenes/3/scene = ExtResource("14_b1l6j")
+scenes/4/scene = ExtResource("15_c5ntx")
+
 [resource]
 sources/0 = SubResource("TileSetScenesCollectionSource_fcmb2")
 sources/1 = SubResource("TileSetScenesCollectionSource_dwacm")
 sources/2 = SubResource("TileSetScenesCollectionSource_6sjpf")
+sources/3 = SubResource("TileSetScenesCollectionSource_61vy0")
