@@ -44,7 +44,6 @@ layer_0/tile_data = PackedInt32Array(-65536, 0, 393216, -13, 0, 393216, -12, 0, 
 
 [node name="Player" parent="." instance=ExtResource("5_1fll1")]
 position = Vector2(-6, -70)
-scale = Vector2(0.2, 0.2)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_4pvxy")
