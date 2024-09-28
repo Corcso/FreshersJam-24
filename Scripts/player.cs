@@ -29,13 +29,15 @@ public partial class player : RigidBody2D
 	float bounceEfficiency;
 
 	ShapeCast2D floorChecker;
+	GameManager gameManager;
 
     // Get the gravity from the project settings to be synced with RigidBody nodes.
     public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
     public override void _Ready()
     {
-		floorChecker = GetNode<ShapeCast2D>("./FloorCaster");
+        gameManager = GetTree().Root.GetNode<GameManager>("./GameManager");
+        floorChecker = GetNode<ShapeCast2D>("./FloorCaster");
 		floorChecker.ExcludeParent = true;
     }
 
@@ -44,6 +46,12 @@ public partial class player : RigidBody2D
 		Vector2 velocity = state.LinearVelocity;
 		//velocity.Y += gravity * (float)delta;
 
+		if (gameManager.currentGameState == GameManager.GameState.DEAD)
+		{
+
+			return;
+
+		}
 
 		float directionX = Input.GetAxis("Left", "Right");
 		//direction.X = Input.GetActionStrength("Right") - Input.GetActionStrength("Left");
