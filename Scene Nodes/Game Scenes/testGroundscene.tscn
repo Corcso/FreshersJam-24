@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cm1yr40el67t1" path="res://Scene Nodes/Object Nodes/enemyBasic.tscn" id="2_nxv3f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kcbw6"]
-size = Vector2(912, 20)
+size = Vector2(779, 23)
 
 [node name="Node2D" type="Node2D"]
 
@@ -14,10 +14,9 @@ position = Vector2(139, 187)
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(530, 480)
+position = Vector2(466, 477)
 shape = SubResource("RectangleShape2D_kcbw6")
 debug_color = Color(0, 0.6, 0.701961, 0.490196)
 
 [node name="enemyBasic" parent="." instance=ExtResource("2_nxv3f")]
-position = Vector2(823, 194)
-moveLeft = true
+position = Vector2(367, 111)

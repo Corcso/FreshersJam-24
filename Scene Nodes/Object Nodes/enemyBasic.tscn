@@ -28,7 +28,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bf7uc"]
 size = Vector2(32, 32)
 
-[node name="enemyBasic" type="CharacterBody2D"]
+[node name="enemyBasic" type="RigidBody2D"]
+lock_rotation = true
+max_contacts_reported = 8
+contact_monitor = true
 script = ExtResource("1_rxl14")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
