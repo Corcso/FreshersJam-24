@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://84jv488in3bq"
-path="res://.godot/imported/BrickWall_001.png-118c45b3af5c42122422fd65d99c46ad.ctex"
+uid="uid://6ixqcjkk1a8f"
+path="res://.godot/imported/BrickWallEdge_Left_001.png-1f652ec5dbac487fd065234aa1c1e8ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assests/BrickWall_001.png"
-dest_files=["res://.godot/imported/BrickWall_001.png-118c45b3af5c42122422fd65d99c46ad.ctex"]
+source_file="res://Sprites/Tiles/BrickWallEdge_Left_001.png"
+dest_files=["res://.godot/imported/BrickWallEdge_Left_001.png-1f652ec5dbac487fd065234aa1c1e8ce.ctex"]
 
 [params]
 
