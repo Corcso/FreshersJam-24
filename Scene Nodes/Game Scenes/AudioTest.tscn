@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://hlx3lb4kgasq"]
+[gd_scene load_steps=5 format=3 uid="uid://bhcgawjplee64"]
 
-[ext_resource type="AudioStream" uid="uid://chs3a4qci5q8g" path="res://Audio/671900__bertsz__calm-background-music.mp3" id="1_1kf40"]
-[ext_resource type="AudioStream" uid="uid://drlkx4tdjs71t" path="res://Audio/eternalscreaming render 001.wav" id="2_nesfo"]
-[ext_resource type="AudioStream" uid="uid://d1vxirfp7uly7" path="res://Audio/DripAmbiant.wav" id="3_if84x"]
-[ext_resource type="AudioStream" uid="uid://bhdgjt3y0i7kt" path="res://Audio/BubblingAmbiant.wav" id="4_i6w4a"]
+[ext_resource type="AudioStream" path="res://Audio/671900__bertsz__calm-background-music.mp3" id="1_1kf40"]
+[ext_resource type="AudioStream" path="res://Audio/eternalscreaming render 001.wav" id="2_nesfo"]
+[ext_resource type="AudioStream" path="res://Audio/DripAmbiant.wav" id="3_if84x"]
+[ext_resource type="AudioStream" path="res://Audio/BubblingAmbiant.wav" id="4_i6w4a"]
 
 [node name="AudioTest" type="Node2D"]
 

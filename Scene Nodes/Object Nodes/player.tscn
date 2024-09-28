@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwmppwpjp1r7i"]
+[gd_scene load_steps=7 format=3 uid="uid://6svb3fqhltxe"]
 
 [ext_resource type="Script" path="res://Scripts/player.cs" id="1_t4ycn"]
 [ext_resource type="Texture2D" uid="uid://bayymefigf4ey" path="res://icon.svg" id="2_amhed"]
+[ext_resource type="AudioStream" path="res://Audio/Jump.wav" id="3_vccq4"]
+[ext_resource type="AudioStream" path="res://Audio/Dash.mp3" id="4_jr018"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ct23j"]
 size = Vector2(100, 100)
@@ -17,11 +19,24 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("jumpSound", "dashSound", "doubleJumpSound")]
 script = ExtResource("1_t4ycn")
+jumpSound = NodePath("AudioStreamPlayer")
+dashSound = NodePath("AudioStreamPlayer2")
+doubleJumpSound = NodePath("AudioStreamPlayer3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ct23j")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cykvb")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vccq4")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_jr018")
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vccq4")
+pitch_scale = 1.43
