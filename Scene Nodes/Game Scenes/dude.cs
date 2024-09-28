@@ -16,9 +16,9 @@ public partial class dude : AnimatedSprite2D
 	public override void _Process(double delta)
 	{
 
-        Vector2 pos = Position;
+		Vector2 pos = Position;
 
-        if (Input.IsKeyPressed(Key.W))
+		if (Input.IsKeyPressed(Key.W))
 		{
 
 			pos.Y -= 5;

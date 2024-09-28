@@ -7,22 +7,22 @@ public partial class PlayerCamera : Camera2D
 	
 	Node2D dude;
 
-    const int ROOM_HEIGHT = 10;
+	const int ROOM_HEIGHT = 500;
 
-	int totalHeight = 10;
+	float camSpeed;
 
-    // Called when the node enters the scene tree for the first time.
-    public override void _Ready()
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
 	{
-        Vector2 pos = Position;
-        
+		Vector2 pos = Position;
+		
 		dude = GetNode<Node2D>("../dude");
 
 		pos = Position;
 
 		pos.X = dude.Position.X;
 
-		pos.Y = ROOM_HEIGHT / 2;
+		//pos.Y = ROOM_HEIGHT / 2;
 
 		Position = pos;
 	}
@@ -30,16 +30,18 @@ public partial class PlayerCamera : Camera2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-        Vector2 pos = Position;
-        
-		if (dude.Position.Y <= totalHeight)
-		{
-			pos.Y = pos.Y - ROOM_HEIGHT;
+		Vector2 pos = Position;
 
-			totalHeight -= ROOM_HEIGHT;
+		camSpeed = 5 * (float)delta;
 
-			GD.Print(dude.Position.Y);
-        }
+		float targetY = -((float)Math.Floor(-dude.Position.Y / ROOM_HEIGHT) * ROOM_HEIGHT + (ROOM_HEIGHT / 2));
+
+
+		pos.Y += (targetY - pos.Y) * camSpeed;
+
+
+		GD.Print(targetY);
+		
 
 		Position = pos;
 
