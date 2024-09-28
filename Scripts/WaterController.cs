@@ -6,15 +6,17 @@ public partial class WaterController : Area2D
 {
 	// Called when the node enters the scene tree for the first time.
 	GameManager gameManager;
-	CharacterBody2D player;
+	player player;
 
     float waterSpeed;
+
+	const int ROOM_HEIGHT = 512-32;
 
 	public override void _Ready()
 	{
 		gameManager = GetTree().Root.GetNode<GameManager>("./GameManager");
 
-		player = GetNode<CharacterBody2D>("./Player");
+		player = GetNode<player>("../Player");
 
 		BodyEntered += (Node2D body) => Collided(body);
     }
@@ -24,11 +26,19 @@ public partial class WaterController : Area2D
 	{
 		Vector2 pos = Position;
 
+		float playerRoom = ((float)Math.Floor(-player.Position.Y / ROOM_HEIGHT));
+		float waterRoom = ((float)Math.Floor(-Position.Y / ROOM_HEIGHT));
+
 		waterSpeed = -10 * (float)delta;
 
-		pos.Y += waterSpeed;
+		if (playerRoom > waterRoom)
+		{
 
-		//GD.Print(pos.Y);
+			waterSpeed = -(playerRoom - waterRoom) * 10 * (float)delta;
+
+		}
+
+		pos.Y += waterSpeed;
 
 		Position = pos;	
 	}

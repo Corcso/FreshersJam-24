@@ -1,14 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://cruhh3wh4fynw"]
+[gd_scene load_steps=11 format=3 uid="uid://cme51q4v7cb4a"]
 
 [ext_resource type="TileSet" uid="uid://b1eflxxec7fbj" path="res://Scene Nodes/Object Nodes/Tiles/Tileset16.tres" id="1_3yc0m"]
-[ext_resource type="SpriteFrames" path="res://Sprites/WaterAnimation.tres" id="2_aidnr"]
+[ext_resource type="SpriteFrames" uid="uid://bnps2g26o2p0t" path="res://Sprites/WaterAnimation.tres" id="2_aidnr"]
 [ext_resource type="Script" path="res://Scripts/WaterController.cs" id="2_fikr6"]
 [ext_resource type="AudioStream" uid="uid://drlkx4tdjs71t" path="res://Audio/eternalscreaming render 001.wav" id="3_ryw63"]
 [ext_resource type="TileSet" uid="uid://hpcxllsil4j" path="res://Scene Nodes/Object Nodes/Tiles/Tileset8.tres" id="4_6ugbf"]
 [ext_resource type="PackedScene" uid="uid://6svb3fqhltxe" path="res://Scene Nodes/Object Nodes/player.tscn" id="5_t8awg"]
 [ext_resource type="AudioStream" uid="uid://d1vxirfp7uly7" path="res://Audio/DripAmbiant.wav" id="6_5c2fg"]
 [ext_resource type="AudioStream" uid="uid://bhdgjt3y0i7kt" path="res://Audio/BubblingAmbiant.wav" id="7_pggin"]
-[ext_resource type="AudioStream" uid="uid://omv8206c0shj" path="res://Audio/Calm music.wav" id="8_a6uak"]
+[ext_resource type="AudioStream" path="res://Audio/Calm music.wav" id="8_a6uak"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7x78m"]
 size = Vector2(832, 20)

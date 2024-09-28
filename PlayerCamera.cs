@@ -15,14 +15,10 @@ public partial class PlayerCamera : Camera2D
 	public override void _Ready()
 	{
 		Vector2 pos = Position;
-		
-		
 
 		pos = Position;
 
 		pos.X = dude.Position.X;
-
-		//pos.Y = ROOM_HEIGHT / 2;
 
 		Position = pos;
 	}
@@ -36,13 +32,8 @@ public partial class PlayerCamera : Camera2D
 
 		float targetY = -((float)Math.Floor(-dude.Position.Y / ROOM_HEIGHT) * ROOM_HEIGHT + (ROOM_HEIGHT / 2));
 
-
 		pos.Y += (targetY - pos.Y) * camSpeed;
-
-
-		GD.Print(targetY);
 		
-
 		Position = pos;
 
 	}
