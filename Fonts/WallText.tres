@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bqdfhsxfeepc7"]
+
+[ext_resource type="FontFile" uid="uid://cky7wsfxculhr" path="res://Fonts/youmurdererbb_reg.ttf" id="1_1tfxl"]
+
+[resource]
+font = ExtResource("1_1tfxl")
+font_size = 22
+font_color = Color(0.992157, 0.0980392, 0.2, 1)
