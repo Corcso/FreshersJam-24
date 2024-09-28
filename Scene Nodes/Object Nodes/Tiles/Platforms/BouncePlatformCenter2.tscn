@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3y4v5lyqtuvp"]
+
+[ext_resource type="Script" path="res://Scripts/PlatformScript.cs" id="1_hldmv"]
+[ext_resource type="Shape2D" uid="uid://dvnc57rj8vec3" path="res://Scene Nodes/Object Nodes/Tiles/Templates/16x16Square.tres" id="2_8w8y6"]
+[ext_resource type="Texture2D" uid="uid://bd2mp4ugncf8t" path="res://Sprites/Tiles/BouncyPlatform_MiddleRight_001.png" id="3_gu0mt"]
+[ext_resource type="OccluderPolygon2D" uid="uid://cw4yypop555po" path="res://Scene Nodes/Object Nodes/Tiles/Templates/16x16Occluder.tres" id="4_u2s8j"]
+
+[node name="Template16x16TileCollide" type="Area2D"]
+script = ExtResource("1_hldmv")
+currentMode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("2_8w8y6")
+debug_color = Color(1, 1, 1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_gu0mt")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = ExtResource("4_u2s8j")

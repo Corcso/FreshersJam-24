@@ -1,8 +1,16 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://hpcxllsil4j"]
+[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://hpcxllsil4j"]
 
 [ext_resource type="PackedScene" uid="uid://4k86o2v5pste" path="res://Scene Nodes/Object Nodes/Tiles/Debug/DebugPlatformCenter.tscn" id="1_08hqu"]
 [ext_resource type="PackedScene" uid="uid://bwdkut0kouyrs" path="res://Scene Nodes/Object Nodes/Tiles/Debug/DebugPlatformLeft.tscn" id="2_s17mk"]
 [ext_resource type="PackedScene" uid="uid://ct512og7ymnw8" path="res://Scene Nodes/Object Nodes/Tiles/Debug/DebugPlatformRight.tscn" id="3_uaveh"]
+[ext_resource type="PackedScene" uid="uid://bbpxejgermmx" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/BrickPlatformCenter1.tscn" id="4_v1nhf"]
+[ext_resource type="PackedScene" uid="uid://cq8ll0ib0h7ok" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/BrickPlatformCenter2.tscn" id="5_hqfvm"]
+[ext_resource type="PackedScene" uid="uid://bie5sbwfr2kjy" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/BrickPlatformLeft.tscn" id="6_cchcj"]
+[ext_resource type="PackedScene" uid="uid://drljrex5km1kq" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/BrickPlatformRight.tscn" id="7_030fv"]
+[ext_resource type="PackedScene" uid="uid://engy0vaww5qb" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/BouncePlatformCenter1.tscn" id="8_p4s2d"]
+[ext_resource type="PackedScene" uid="uid://b3y4v5lyqtuvp" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/BouncePlatformCenter2.tscn" id="9_pc16b"]
+[ext_resource type="PackedScene" uid="uid://i721cigdimlt" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/BouncePlatformLeft.tscn" id="10_tvlxy"]
+[ext_resource type="PackedScene" uid="uid://cglfjw6x7kk63" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/BouncePlatformRight.tscn" id="11_xrtk7"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_fcmb2"]
 resource_name = "Debug"
@@ -10,5 +18,21 @@ scenes/1/scene = ExtResource("1_08hqu")
 scenes/2/scene = ExtResource("2_s17mk")
 scenes/3/scene = ExtResource("3_uaveh")
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_dwacm"]
+resource_name = "Regular Platform"
+scenes/1/scene = ExtResource("4_v1nhf")
+scenes/2/scene = ExtResource("5_hqfvm")
+scenes/3/scene = ExtResource("6_cchcj")
+scenes/4/scene = ExtResource("7_030fv")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_6sjpf"]
+resource_name = "Bouncy Platform"
+scenes/1/scene = ExtResource("8_p4s2d")
+scenes/2/scene = ExtResource("9_pc16b")
+scenes/3/scene = ExtResource("10_tvlxy")
+scenes/4/scene = ExtResource("11_xrtk7")
+
 [resource]
 sources/0 = SubResource("TileSetScenesCollectionSource_fcmb2")
+sources/1 = SubResource("TileSetScenesCollectionSource_dwacm")
+sources/2 = SubResource("TileSetScenesCollectionSource_6sjpf")
