@@ -1,20 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cw3c2vhsxh3e"]
+[gd_scene load_steps=7 format=3 uid="uid://cw3c2vhsxh3e"]
 
 [ext_resource type="Script" path="res://Scripts/player.cs" id="1_t4ycn"]
-[ext_resource type="Texture2D" uid="uid://bayymefigf4ey" path="res://icon.svg" id="2_amhed"]
+[ext_resource type="SpriteFrames" uid="uid://b7hlj0h2yv0qi" path="res://Sprites/Character/CharacterAnimation.tres" id="2_r8kmj"]
 [ext_resource type="AudioStream" uid="uid://cmjixi2koq2p2" path="res://Audio/Jump.wav" id="3_vccq4"]
 [ext_resource type="AudioStream" uid="uid://bqqfok1p2dmip" path="res://Audio/Dash.mp3" id="4_jr018"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_cykvb"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_amhed")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mvwsw"]
 radius = 16.0
@@ -32,9 +21,9 @@ dashSound = NodePath("AudioStreamPlayer2")
 doubleJumpSound = NodePath("AudioStreamPlayer3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(3.1, -6.1)
-scale = Vector2(0.248438, 0.295313)
-sprite_frames = SubResource("SpriteFrames_cykvb")
+position = Vector2(0.0999999, 4.76837e-07)
+sprite_frames = ExtResource("2_r8kmj")
+animation = &"Walk"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_vccq4")
@@ -50,10 +39,9 @@ pitch_scale = 1.43
 current = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, -6)
 shape = SubResource("CapsuleShape2D_mvwsw")
 
 [node name="FloorCaster" type="ShapeCast2D" parent="."]
-position = Vector2(-13, 13)
+position = Vector2(-10, 15)
 shape = SubResource("RectangleShape2D_ngd66")
-target_position = Vector2(32, 0)
+target_position = Vector2(20, 0)
