@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6hksmidhfqbe"]
+[gd_scene load_steps=8 format=3 uid="uid://b6hksmidhfqbe"]
 
 [ext_resource type="Theme" uid="uid://m1yh5sssjnvi" path="res://new_theme.tres" id="1_prtiv"]
 [ext_resource type="Texture2D" uid="uid://b0gs4dgj4a07o" path="res://Sprites/UI/Begin Button.png" id="2_nkhwu"]
@@ -6,11 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://bcqtoun7y1d73" path="res://Sprites/UI/Begin Button Pressed.png" id="3_c1krb"]
 [ext_resource type="Texture2D" uid="uid://vjtf3f77vkfb" path="res://Sprites/UI/Quit Button.png" id="4_q6xf2"]
 [ext_resource type="Texture2D" uid="uid://ck67i0om3bk6v" path="res://Sprites/UI/Quit Button Pressed.png" id="5_b8be1"]
+[ext_resource type="AudioStream" uid="uid://dvkf2onvdg3tw" path="res://Audio/Click.mp3" id="7_u3fr6"]
 
 [node name="MainMenu" type="Node2D"]
 texture_filter = 1
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("buttonSound")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,6 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_prtiv")
 script = ExtResource("2_q271i")
+buttonSound = NodePath("../AudioStreamPlayer")
 
 [node name="Begin Button" type="TextureButton" parent="Control"]
 layout_mode = 0
@@ -41,6 +43,9 @@ offset_bottom = 413.0
 texture_normal = ExtResource("4_q6xf2")
 texture_pressed = ExtResource("5_b8be1")
 texture_hover = ExtResource("5_b8be1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_u3fr6")
 
 [connection signal="pressed" from="Control/Begin Button" to="Control" method="_on_begin_button_pressed"]
 [connection signal="pressed" from="Control/Quit Button" to="Control" method="_on_quit_button_pressed"]
