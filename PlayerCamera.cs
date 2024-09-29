@@ -39,4 +39,12 @@ public partial class PlayerCamera : Camera2D
 		Position = pos;
 
 	}
+	private void _on_button_2_pressed()
+	{
+		// Replace with function body.
+		
+	}
 }
+
+
+

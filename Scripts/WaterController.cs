@@ -46,12 +46,22 @@ public partial class WaterController : Area2D
 		pos.Y += waterSpeed;
 
 		Position = pos;
+
+	//	GD.Print("Player Position X: " ,player.Position.X, "px Player Position Y: ",  player.Position.Y, "px \n");
+
+		//if (player.Position.Y <-4855 && (player.Position.X > 71 || player.Position.X < -72))
+		//{
+		//	//Player completing level
+		//	GD.Print("WIN!");
+  //          gameManager.currentGameState = GameManager.GameState.WON;
+
+  //      }
 	}
 
 	private void Collided(Node2D body) {
 		player potentialPlayer = body.GetParent().GetNodeOrNull<player>("./" + body.Name);
 		if (potentialPlayer != null) {
-			GD.Print("DIE");
+			//GD.Print("DIE");
             gameManager.currentGameState = GameManager.GameState.DEAD;
 
         }

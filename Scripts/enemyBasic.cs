@@ -95,8 +95,8 @@ public partial class enemyBasic : RigidBody2D
         if (possiblePlayer != null && !dead)
         {
             //Debug.Print("yep thats the player");
-            Debug.Print(possiblePlayer.GlobalPosition.Y.ToString() + ", " + GlobalPosition.Y.ToString());
-            Debug.Print(possiblePlayer.LinearVelocity.Y.ToString() + ", " + LinearVelocity.Y.ToString());
+            //Debug.Print(possiblePlayer.GlobalPosition.Y.ToString() + ", " + GlobalPosition.Y.ToString());
+            //Debug.Print(possiblePlayer.LinearVelocity.Y.ToString() + ", " + LinearVelocity.Y.ToString());
             //check if 
             if (deathArea.IsColliding() && deathArea.GetCollider() is player/*possiblePlayer.GlobalPosition.Y < GlobalPosition.Y && (possiblePlayer.LinearVelocity.Y > LinearVelocity.Y || (possiblePlayer.LinearVelocity.Y >= LinearVelocity.Y && LinearVelocity.Y != 0))*/)
             {
@@ -110,7 +110,7 @@ public partial class enemyBasic : RigidBody2D
             {
                 // Bounce back player
                 float launchDirectionX = (possiblePlayer.GlobalPosition.X - GlobalPosition.X) < 0 ? -1 : 1;
-                GD.Print(launchDirectionX.ToString());
+                //GD.Print(launchDirectionX.ToString());
                 possiblePlayer.ApplyCentralImpulse(new Vector2(launchDirectionX, -1f) * 400);
             }
         }
