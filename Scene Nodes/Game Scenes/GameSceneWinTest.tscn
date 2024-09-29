@@ -1,11 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://jtmtbs7ecgp4"]
+[gd_scene load_steps=19 format=3 uid="uid://bkxmq25gdswn6"]
 
 [ext_resource type="Script" path="res://PlayerCamera.cs" id="1_45k55"]
 [ext_resource type="TileSet" uid="uid://b1eflxxec7fbj" path="res://Scene Nodes/Object Nodes/Tiles/Tileset16.tres" id="2_pxavu"]
 [ext_resource type="LabelSettings" uid="uid://bqdfhsxfeepc7" path="res://Fonts/WallText.tres" id="3_ipm47"]
 [ext_resource type="Texture2D" uid="uid://ey0dh75po4uw" path="res://Sprites/Red-Horror-arrow-png-download.png" id="4_7obe0"]
 [ext_resource type="Script" path="res://Scripts/WaterController.cs" id="5_r4axq"]
-[ext_resource type="SpriteFrames" uid="uid://bnps2g26o2p0t" path="res://Sprites/WaterAnimation.tres" id="6_4aref"]
+[ext_resource type="SpriteFrames" path="res://Sprites/WaterAnimation.tres" id="6_4aref"]
 [ext_resource type="AudioStream" uid="uid://drlkx4tdjs71t" path="res://Audio/eternalscreaming render 001.wav" id="7_ookui"]
 [ext_resource type="TileSet" uid="uid://hpcxllsil4j" path="res://Scene Nodes/Object Nodes/Tiles/Tileset8.tres" id="8_rvye1"]
 [ext_resource type="PackedScene" uid="uid://cw3c2vhsxh3e" path="res://Scene Nodes/Object Nodes/player.tscn" id="9_a2hxd"]
@@ -346,6 +346,7 @@ offset_right = -403.0
 offset_bottom = -5166.0
 
 [node name="ColorRect" type="ColorRect" parent="EndScreen"]
+layout_mode = 0
 offset_right = 900.0
 offset_bottom = 300.0
 mouse_filter = 2

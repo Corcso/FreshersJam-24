@@ -28,7 +28,6 @@ public partial class GameManager : Node
 
 		ProcessMode = ProcessModeEnum.Always;
 
-		endScreen.Hide();
 	}
 
 	public override void _Input(InputEvent @event)

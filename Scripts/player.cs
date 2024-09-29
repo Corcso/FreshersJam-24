@@ -65,7 +65,7 @@ public partial class player : RigidBody2D
 		Vector2 velocity = state.LinearVelocity;
         //velocity.Y += gravity * (float)delta;
 
-        if (this.Position.Y < -4855 && (this.Position.X > 71 || this.Position.X < -72) && floorChecker.IsColliding() && gameManager.currentGameState != GameManager.GameState.WON)
+        if (this.Position.Y < -4840 && (this.Position.X > 71 || this.Position.X < -72) && floorChecker.IsColliding() && gameManager.currentGameState != GameManager.GameState.WON)
         {
             //Player completing level
             GD.Print("WIN!");
@@ -91,6 +91,7 @@ public partial class player : RigidBody2D
 			moveVelocity = 0.0f;
 			dashVelocity = 0.0f;
 			GD.Print("WINNER!");
+			return;
 		}
 
         // Default animation to idle
