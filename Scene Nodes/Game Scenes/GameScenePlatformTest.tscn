@@ -1,10 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://fua1jkit2enw"]
+[gd_scene load_steps=19 format=3 uid="uid://ceagkxmkg1pl6"]
 
 [ext_resource type="TileSet" uid="uid://b1eflxxec7fbj" path="res://Scene Nodes/Object Nodes/Tiles/Tileset16.tres" id="1_kic2y"]
 [ext_resource type="SpriteFrames" path="res://Sprites/WaterAnimation.tres" id="2_hyitk"]
 [ext_resource type="AudioStream" uid="uid://drlkx4tdjs71t" path="res://Audio/eternalscreaming render 001.wav" id="3_l2d3u"]
 [ext_resource type="TileSet" uid="uid://hpcxllsil4j" path="res://Scene Nodes/Object Nodes/Tiles/Tileset8.tres" id="4_uugjh"]
-[ext_resource type="PackedScene" uid="uid://cw3c2vhsxh3e" path="res://Scene Nodes/Object Nodes/player.tscn" id="5_1fll1"]
+[ext_resource type="PackedScene" uid="uid://d1c1b1w5bmtxp" path="res://Scene Nodes/Object Nodes/player.tscn" id="5_1fll1"]
 [ext_resource type="AudioStream" uid="uid://d1vxirfp7uly7" path="res://Audio/DripAmbiant.wav" id="6_4pvxy"]
 [ext_resource type="AudioStream" uid="uid://bhdgjt3y0i7kt" path="res://Audio/BubblingAmbiant.wav" id="7_5j7qj"]
 [ext_resource type="AudioStream" uid="uid://omv8206c0shj" path="res://Audio/Calm music.wav" id="8_8joq4"]
@@ -19,7 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://dvkf2onvdg3tw" path="res://Audio/Click.mp3" id="17_0428e"]
 [ext_resource type="AudioStream" uid="uid://c5esah0ntcx3m" path="res://Audio/Menu.wav" id="18_mla3j"]
 
-[node name="GameScene" type="Node2D"]
+[node name="GameScene2" type="Node2D"]
 modulate = Color(0.509286, 0.509286, 0.509286, 1)
 texture_filter = 1
 
@@ -102,7 +102,7 @@ offset_right = 412.0
 offset_bottom = 300.0
 color = Color(0.180392, 1, 1, 1)
 
-[node name="Pause Menu" type="Control" parent="." node_paths=PackedStringArray("ButtonSound", "menuSound")]
+[node name="Pause Menu" type="Control" parent="."]
 visible = false
 top_level = true
 light_mask = 0
@@ -113,8 +113,6 @@ offset_top = -409.0
 offset_right = -188.0
 offset_bottom = -369.0
 script = ExtResource("11_l2ftg")
-ButtonSound = NodePath("AudioStreamPlayer")
-menuSound = NodePath("AudioStreamPlayer2")
 
 [node name="TextureRect" type="TextureRect" parent="Pause Menu"]
 layout_mode = 0
