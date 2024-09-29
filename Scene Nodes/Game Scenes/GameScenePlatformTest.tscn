@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://fua1jkit2enw"]
 
 [ext_resource type="TileSet" uid="uid://b1eflxxec7fbj" path="res://Scene Nodes/Object Nodes/Tiles/Tileset16.tres" id="1_kic2y"]
-[ext_resource type="SpriteFrames" uid="uid://bnps2g26o2p0t" path="res://Sprites/WaterAnimation.tres" id="2_hyitk"]
+[ext_resource type="SpriteFrames" path="res://Sprites/WaterAnimation.tres" id="2_hyitk"]
 [ext_resource type="AudioStream" uid="uid://drlkx4tdjs71t" path="res://Audio/eternalscreaming render 001.wav" id="3_l2d3u"]
 [ext_resource type="TileSet" uid="uid://hpcxllsil4j" path="res://Scene Nodes/Object Nodes/Tiles/Tileset8.tres" id="4_uugjh"]
 [ext_resource type="PackedScene" uid="uid://cw3c2vhsxh3e" path="res://Scene Nodes/Object Nodes/player.tscn" id="5_1fll1"]

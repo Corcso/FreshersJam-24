@@ -1,9 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://yqchk23c3xa2"]
+[gd_scene load_steps=29 format=3 uid="uid://yqchk23c3xa2"]
 
 [ext_resource type="Script" path="res://PlayerCamera.cs" id="1_jtm4b"]
 [ext_resource type="TileSet" uid="uid://b1eflxxec7fbj" path="res://Scene Nodes/Object Nodes/Tiles/Tileset16.tres" id="1_sknvf"]
 [ext_resource type="TileSet" uid="uid://hpcxllsil4j" path="res://Scene Nodes/Object Nodes/Tiles/Tileset8.tres" id="2_frsy3"]
-[ext_resource type="SpriteFrames" uid="uid://bnps2g26o2p0t" path="res://Sprites/WaterAnimation.tres" id="2_x113j"]
+[ext_resource type="SpriteFrames" path="res://Sprites/WaterAnimation.tres" id="2_x113j"]
 [ext_resource type="AudioStream" uid="uid://drlkx4tdjs71t" path="res://Audio/eternalscreaming render 001.wav" id="3_0rlsp"]
 [ext_resource type="PackedScene" uid="uid://cw3c2vhsxh3e" path="res://Scene Nodes/Object Nodes/player.tscn" id="3_in6fc"]
 [ext_resource type="Script" path="res://Scripts/WaterController.cs" id="5_mxhim"]
@@ -15,6 +15,17 @@
 [ext_resource type="Script" path="res://Scripts/FinalRoomMusicTrigger.cs" id="13_5kquo"]
 [ext_resource type="AudioStream" uid="uid://vvfe5ga8gcem" path="res://Audio/LessCalm music.wav" id="13_mwg63"]
 [ext_resource type="PackedScene" uid="uid://d1l80rdajc73g" path="res://Scene Nodes/Object Nodes/enemyBasic.tscn" id="15_anevn"]
+[ext_resource type="Script" path="res://Scripts/DeathMenuControler.cs" id="16_xj71e"]
+[ext_resource type="Texture2D" uid="uid://ccvpjihensbps" path="res://Sprites/UI/PauseBackground.png" id="17_2fmie"]
+[ext_resource type="Texture2D" uid="uid://dwv5mfqdwdagn" path="res://Sprites/UI/Retry Button.png" id="18_rcrnb"]
+[ext_resource type="Texture2D" uid="uid://dxpghy6gt5yao" path="res://Sprites/UI/Retry Button Pressed.png" id="19_vahg2"]
+[ext_resource type="Texture2D" uid="uid://c2j624a1dign1" path="res://Sprites/UI/Menu Button.png" id="20_1ca7v"]
+[ext_resource type="Texture2D" uid="uid://ejxytosbn0oj" path="res://Sprites/UI/Menu Button Pressed.png" id="21_6v1u6"]
+[ext_resource type="Script" path="res://Scripts/PauseMenuControler.cs" id="22_815wj"]
+[ext_resource type="Texture2D" uid="uid://c2lrtvs7lc14" path="res://Sprites/UI/Resume Button.png" id="23_4egb0"]
+[ext_resource type="Texture2D" uid="uid://bwsp8ocgpl8mg" path="res://Sprites/UI/Resume Button Pressed.png" id="24_me62m"]
+[ext_resource type="AudioStream" uid="uid://dvkf2onvdg3tw" path="res://Audio/Click.mp3" id="25_p4c6g"]
+[ext_resource type="AudioStream" uid="uid://c5esah0ntcx3m" path="res://Audio/Menu.wav" id="26_m8um7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wanrf"]
 size = Vector2(832, 20)
@@ -25,11 +36,6 @@ size = Vector2(64, 6)
 [node name="GameScene" type="Node2D"]
 modulate = Color(0.489622, 0.489622, 0.489622, 1)
 texture_filter = 1
-
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("dude")]
-position = Vector2(0, -256)
-script = ExtResource("1_jtm4b")
-dude = NodePath("../Player")
 
 [node name="Background Tilemap" type="TileMap" parent="."]
 tile_set = ExtResource("1_sknvf")
@@ -356,3 +362,97 @@ position = Vector2(124, -3573)
 
 [node name="enemyBasic7" parent="." instance=ExtResource("15_anevn")]
 position = Vector2(206, -4375)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("dude")]
+position = Vector2(0, -256)
+script = ExtResource("1_jtm4b")
+dude = NodePath("../Player")
+
+[node name="Death Screen" type="Control" parent="Camera2D"]
+visible = false
+modulate = Color(2, 2, 2, 1)
+light_mask = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -218.0
+offset_top = -148.0
+offset_right = 167.0
+offset_bottom = 290.0
+script = ExtResource("16_xj71e")
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Death Screen"]
+light_mask = 0
+layout_mode = 0
+offset_right = 448.0
+offset_bottom = 320.0
+texture = ExtResource("17_2fmie")
+
+[node name="Retry Button" type="TextureButton" parent="Camera2D/Death Screen"]
+light_mask = 0
+layout_mode = 0
+offset_left = 26.0
+offset_top = 16.0
+offset_right = 410.0
+offset_bottom = 144.0
+texture_normal = ExtResource("18_rcrnb")
+texture_pressed = ExtResource("19_vahg2")
+
+[node name="Menu Button" type="TextureButton" parent="Camera2D/Death Screen"]
+light_mask = 0
+layout_mode = 0
+offset_left = 26.0
+offset_top = 174.0
+offset_right = 410.0
+offset_bottom = 302.0
+texture_normal = ExtResource("20_1ca7v")
+texture_pressed = ExtResource("21_6v1u6")
+
+[node name="Pause Menu" type="Control" parent="Camera2D" node_paths=PackedStringArray("ButtonSound", "menuSound")]
+process_mode = 3
+visible = false
+modulate = Color(2, 2, 2, 1)
+light_mask = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -219.0
+offset_top = -161.0
+offset_right = -179.0
+offset_bottom = -121.0
+script = ExtResource("22_815wj")
+ButtonSound = NodePath("AudioStreamPlayer")
+menuSound = NodePath("AudioStreamPlayer2")
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Pause Menu"]
+light_mask = 0
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("17_2fmie")
+
+[node name="Resume Button" type="TextureButton" parent="Camera2D/Pause Menu"]
+light_mask = 0
+layout_mode = 0
+offset_left = 31.0
+offset_top = 34.0
+offset_right = 415.0
+offset_bottom = 162.0
+texture_normal = ExtResource("23_4egb0")
+texture_pressed = ExtResource("24_me62m")
+texture_hover = ExtResource("24_me62m")
+
+[node name="Menu Button" type="TextureButton" parent="Camera2D/Pause Menu"]
+light_mask = 0
+layout_mode = 0
+offset_left = 31.0
+offset_top = 175.0
+offset_right = 415.0
+offset_bottom = 303.0
+texture_normal = ExtResource("20_1ca7v")
+texture_pressed = ExtResource("21_6v1u6")
+texture_hover = ExtResource("21_6v1u6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Camera2D/Pause Menu"]
+stream = ExtResource("25_p4c6g")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Camera2D/Pause Menu"]
+stream = ExtResource("26_m8um7")
