@@ -30,6 +30,8 @@ public partial class player : RigidBody2D
 
 	ShapeCast2D floorChecker;
 	GameManager gameManager;
+	Area2D water;
+	Control deathScreen;
 
     // Get the gravity from the project settings to be synced with RigidBody nodes.
     public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
@@ -44,6 +46,9 @@ public partial class player : RigidBody2D
         gameManager = GetTree().Root.GetNode<GameManager>("./GameManager");
         floorChecker = GetNode<ShapeCast2D>("./FloorCaster");
 		floorChecker.ExcludeParent = true;
+
+		water = GetNode<Area2D>("../Water2");
+		deathScreen = GetNode<Control>("../Death Screen");
 
 		spriteAnimator = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		spriteAnimator.Play("Idle");
@@ -61,8 +66,14 @@ public partial class player : RigidBody2D
 
 		if (gameManager.currentGameState == GameManager.GameState.DEAD)
 		{
+            if (velocity.Y <= 0)
+            {
 
-			return;
+                velocity.Y = 0;
+				
+            }
+			state.LinearVelocity = velocity;
+            return;
 
 		}
 
@@ -182,4 +193,32 @@ public partial class player : RigidBody2D
 			animationFlipped = flipped;
 		}
 	}
+
+    public override void _Process(double delta)
+    {
+		if (gameManager.currentGameState == GameManager.GameState.DEAD)
+		{
+
+			
+
+			//Vector2 pos = Position;
+
+			GravityScale -= 22.5f * (float)delta;
+			GD.Print(GravityScale);
+
+			//vel.Y -= gravity * (float)delta;
+
+			
+			
+   //         if (Position.X <= water.Position.Y)
+   //         {
+
+   //             pos.Y = water.Position.Y;
+
+   //         }
+
+			//Position = pos;
+
+		}
+    }
 }
