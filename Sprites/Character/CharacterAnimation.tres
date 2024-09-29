@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=29 format=3 uid="uid://bg24qitdxkvoe"]
+[gd_resource type="SpriteFrames" load_steps=29 format=3 uid="uid://b7hlj0h2yv0qi"]
 
 [ext_resource type="Texture2D" uid="uid://gdot0griw72k" path="res://Sprites/Character/FrogIdle_Right_001.png" id="1_7s4p4"]
 [ext_resource type="Texture2D" uid="uid://b6lbfc3xiw07x" path="res://Sprites/Character/FrogDash_001.png" id="1_b48l1"]

@@ -3,8 +3,10 @@
 
 *Credits*
 Cormac Somerville
-Fergal H
+Eryth Davidson
+Fergal Harkin
 Jerry Fraser
 Thomas McGregor
 Thomas Richards
 Thomas Stebbings
+
