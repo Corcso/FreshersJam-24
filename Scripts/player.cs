@@ -118,7 +118,7 @@ public partial class player : RigidBody2D
 			velocity.X = directionX * moveVelocity*2;
             thisFramesAnimationState = "Run";
         }
-		else
+		else if (directionX != 0)
 		{
 			velocity.X = directionX * moveVelocity;
 		}
