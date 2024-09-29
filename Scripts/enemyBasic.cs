@@ -68,7 +68,7 @@ public partial class enemyBasic : RigidBody2D
         // Move enemy
 
         state.LinearVelocity = velocity;
-        if (dead) { state.LinearVelocity = 0; }
+        if (dead) { state.LinearVelocity = Vector2.Zero; }
 		//MoveAndSlide();
 		//for (int i = 0; i < GetSlideCollisionCount(); i++)
 		//{

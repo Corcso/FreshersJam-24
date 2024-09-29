@@ -13,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://dvkf2onvdg3tw" path="res://Audio/Click.mp3" id="7_u3fr6"]
 [ext_resource type="AudioStream" uid="uid://bc5sgq4x8ygum" path="res://Audio/Possible Menu.mp3" id="8_mvfwt"]
 [ext_resource type="LabelSettings" uid="uid://bqdfhsxfeepc7" path="res://Fonts/WallText.tres" id="12_q8bdv"]
-[ext_resource type="SpriteFrames" uid="uid://bg24qitdxkvoe" path="res://Sprites/Character/CharacterAnimation.tres" id="13_br3w6"]
+[ext_resource type="SpriteFrames" uid="uid://b7hlj0h2yv0qi" path="res://Sprites/Character/CharacterAnimation.tres" id="13_br3w6"]
 
 [node name="MainMenu" type="Node2D"]
 texture_filter = 1
@@ -57,7 +57,6 @@ scale = Vector2(1, 1.00083)
 sprite_frames = ExtResource("5_rnwl8")
 
 [node name="Control" type="Control" parent="AudioStreamPlayer2/Foreground Tilemap" node_paths=PackedStringArray("buttonsound")]
-
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,9 +69,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_prtiv")
 script = ExtResource("2_q271i")
-
 buttonsound = NodePath("../../../AudioStreamPlayer")
-
 
 [node name="Begin Button" type="TextureButton" parent="AudioStreamPlayer2/Foreground Tilemap/Control"]
 layout_mode = 0
@@ -95,6 +92,7 @@ texture_pressed = ExtResource("5_b8be1")
 texture_hover = ExtResource("5_b8be1")
 
 [node name="Label" type="Label" parent="AudioStreamPlayer2/Foreground Tilemap/Control"]
+layout_mode = 0
 offset_left = 51.0
 offset_top = 62.0
 offset_right = 242.0
