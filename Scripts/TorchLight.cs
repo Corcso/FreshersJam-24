@@ -17,7 +17,7 @@ public partial class TorchLight : Node2D
 	public override void _Process(double delta)
 	{
 		//var water = GetParent<Node2D>().GetNode<Node2D>("Water");
-		var water = GetNode<Node2D>("../Water");
+		var water = GetNode<Node2D>("../../Water");
 		if (water != null)
 		{
             PointLight2D torchLight = GetNode<PointLight2D>("TorchPointLight");
