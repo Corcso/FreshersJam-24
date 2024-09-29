@@ -19,7 +19,7 @@ public partial class player : RigidBody2D
 
 	//in ms
 	[Export]
-	public float dashCooldown = 2000.0f;
+	bool dashAvailable;
 
 	[Export] AudioStreamPlayer jumpSound;
 	[Export] AudioStreamPlayer dashSound;
@@ -81,6 +81,7 @@ public partial class player : RigidBody2D
 		if (floorChecker.IsColliding()&&jumpDouble==true)
 		{
 			jumpCount = 1;
+			dashAvailable = true;
 		}
 		
 		
@@ -121,10 +122,11 @@ public partial class player : RigidBody2D
 		{
 			velocity.X = directionX * moveVelocity;
 		}
-		if (Input.IsActionJustPressed("Dash") && timeDash + dashCooldown < Time.GetTicksMsec() && !floorChecker.IsColliding() && directionX != 0)
+		if (Input.IsActionJustPressed("Dash") && dashAvailable  && !floorChecker.IsColliding() && directionX != 0)
 		{
 			dash = true;
 			timeDash = Time.GetTicksMsec();
+			dashAvailable = false;
 		}
 		if (dash==true)
 		{
