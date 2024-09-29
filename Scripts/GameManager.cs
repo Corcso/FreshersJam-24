@@ -9,6 +9,8 @@ public partial class GameManager : Node
 	PackedScene gameScene;
 
 	Node2D activeGameScene;
+    PackedScene menuScene;
+
 	Node2D activeMenuScene;
 
 	// Set by the pause menu itself when it awakes
@@ -18,7 +20,8 @@ public partial class GameManager : Node
 	public override void _Ready()
 	{
 		gameScene = ResourceLoader.Load<PackedScene>("res://Scene Nodes/Game Scenes/GameScene.tscn");
-		//activeMenuScene = GetTree().Root.GetNode<Node2D>("./MainMenu");
+        menuScene = ResourceLoader.Load<PackedScene>("res://Scene Nodes/Game Scenes/MainMenu.tscn");
+		activeMenuScene = GetTree().Root.GetNode<Node2D>("./MainMenu");
 
 		ProcessMode = ProcessModeEnum.Always;
     }
@@ -48,13 +51,14 @@ public partial class GameManager : Node
 	public void LoadGameScene() {
 		activeGameScene = gameScene.Instantiate<Node2D>();
         GetTree().Root.CallDeferred(Node.MethodName.AddChild, activeGameScene);
-		activeMenuScene.Hide();
+        activeMenuScene.QueueFree();
 	}
 
     public void LoadMenuScene()
     {
 		activeGameScene.QueueFree();
-        activeMenuScene.Show();
+        activeMenuScene = menuScene.Instantiate<Node2D>();
+        GetTree().Root.CallDeferred(Node.MethodName.AddChild, activeMenuScene);
     }
 
 	public void PauseGame()

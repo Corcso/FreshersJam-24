@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bc5sgq4x8ygum"
+path="res://.godot/imported/Possible Menu.mp3-b1708afbff68f7f33495bd33a43355cb.mp3str"
+
+[deps]
+
+source_file="res://Audio/Possible Menu.mp3"
+dest_files=["res://.godot/imported/Possible Menu.mp3-b1708afbff68f7f33495bd33a43355cb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

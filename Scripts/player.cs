@@ -53,6 +53,7 @@ public partial class player : RigidBody2D
 	{
 		string thisFramesAnimationState = "Idle";
 		bool thisFramesAnimationFlipped = animationFlipped;
+		int thisFrameAnimationFrameLock = -1;
 
 
 		Vector2 velocity = state.LinearVelocity;
@@ -76,6 +77,12 @@ public partial class player : RigidBody2D
 			thisFramesAnimationFlipped = directionX < 0;
 		}
 
+		// While not on ground and falling use frame 3 of jump 
+		if (!floorChecker.IsColliding() && velocity.Y > 0) {
+            //thisFramesAnimationState = "Jump";
+            //thisFrameAnimationFrameLock = 3;
+
+        }
 
 		//direction.X = Input.GetActionStrength("Right") - Input.GetActionStrength("Left");
 		if (floorChecker.IsColliding()&&jumpDouble==true)
@@ -89,6 +96,7 @@ public partial class player : RigidBody2D
 		{
 			velocity.Y = jumpVelocity;
 			jumpSound.Play();
+			//thisFramesAnimationState = "Jump";
 			
 		}
         else if (Input.IsActionJustPressed("Jump")&&jumpCount>0)
@@ -118,7 +126,7 @@ public partial class player : RigidBody2D
 			velocity.X = directionX * moveVelocity*2;
             thisFramesAnimationState = "Run";
         }
-		else
+		else if (directionX != 0)
 		{
 			velocity.X = directionX * moveVelocity;
 		}
@@ -127,13 +135,15 @@ public partial class player : RigidBody2D
 			dash = true;
 			timeDash = Time.GetTicksMsec();
 			dashAvailable = false;
-		}
+            thisFramesAnimationState = "Dash";
+        }
 		if (dash==true)
 		{
 			if (Time.GetTicksMsec() < timeDash + 200)
 			{
 				velocity.X = directionX * dashVelocity;
 				dashSound.Play();
+				thisFrameAnimationFrameLock = 1;
 			}
 			else
 			{
@@ -150,6 +160,10 @@ public partial class player : RigidBody2D
             spriteAnimator.FlipH = thisFramesAnimationFlipped;
             animationFlipped = thisFramesAnimationFlipped;
         }
+		if (thisFrameAnimationFrameLock != -1) {
+			spriteAnimator.Frame = 3;
+			spriteAnimator.Pause();	
+		}
 
     }
 

@@ -14,12 +14,33 @@ public partial class enemyBasic : RigidBody2D
     [Export]
     public bool edgeDetect = true;
 
+    AudioStreamPlayer2D deathNoise;
+
     // Get the gravity from the project settings to be synced with RigidBody nodes.
     public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
+
+    RayCast2D deathArea;
+    RayCast2D leftWallCheck;
+    RayCast2D rightWallCheck;
+
+
+    AnimatedSprite2D animatedSprite;
+    bool dead;
+    float timeDead;
 
     public override void _Ready()
     {
         BodyEntered += (Node body) => Collision(body);
+
+        animatedSprite = GetNode<AnimatedSprite2D>("./AnimatedSprite2D");
+        deathNoise = GetNode<AudioStreamPlayer2D>("./DeathNoise");
+
+        deathArea = GetNode<RayCast2D>("deathArea");
+        leftWallCheck = GetNode<RayCast2D>("leftWallCheck");
+        rightWallCheck = GetNode<RayCast2D>("rightWallCheck");
+        deathArea.ExcludeParent = true;
+
+        animatedSprite.Play("Walk");
     }
 
     public override void _IntegrateForces(PhysicsDirectBodyState2D state)
@@ -33,6 +54,7 @@ public partial class enemyBasic : RigidBody2D
 
         RayCast2D lfoot = GetNode<RayCast2D>("leftFoot");
         RayCast2D rfoot = GetNode<RayCast2D>("rightFoot");
+        
         //{
         if (edgeDetect)
 		{
@@ -42,12 +64,14 @@ public partial class enemyBasic : RigidBody2D
 			{
 				
 				if (!lfoot.IsColliding() && rfoot.IsColliding()) moveLeft = !moveLeft;
-			}
+                if (leftWallCheck.IsColliding() && !(leftWallCheck.GetCollider() is player)) moveLeft = !moveLeft;
+            }
 			else
 			{
 				
 				if (!rfoot.IsColliding() && lfoot.IsColliding()) moveLeft = !moveLeft;
-			}
+                if (rightWallCheck.IsColliding() && !(rightWallCheck.GetCollider() is player)) moveLeft = !moveLeft;
+            }
 				
 		}
 		if(rfoot.IsColliding() || lfoot.IsColliding()) velocity.X = (moveLeft ? -1 : 1) * moveVelocity;
@@ -55,6 +79,7 @@ public partial class enemyBasic : RigidBody2D
         // Move enemy
 
         state.LinearVelocity = velocity;
+        if (dead) { state.LinearVelocity = Vector2.Zero; }
 		//MoveAndSlide();
 		//for (int i = 0; i < GetSlideCollisionCount(); i++)
 		//{
@@ -65,13 +90,38 @@ public partial class enemyBasic : RigidBody2D
 	}
 
     private void Collision(Node body) {
-        Debug.Print("collision with " + body.Name.ToString());
-        player possiblePlayer = body.GetParent().GetNodeOrNull<player>("./" + body.Name);
-        if (possiblePlayer != null)
+        //Debug.Print("collision with " + body.Name.ToString());
+        player possiblePlayer = body as player;
+        if (possiblePlayer != null && !dead)
         {
-            if (possiblePlayer.GlobalPosition.Y > GlobalPosition.Y && possiblePlayer.LinearVelocity.Y > LinearVelocity.Y)
+            //Debug.Print("yep thats the player");
+            Debug.Print(possiblePlayer.GlobalPosition.Y.ToString() + ", " + GlobalPosition.Y.ToString());
+            Debug.Print(possiblePlayer.LinearVelocity.Y.ToString() + ", " + LinearVelocity.Y.ToString());
+            //check if 
+            if (deathArea.IsColliding() && deathArea.GetCollider() is player/*possiblePlayer.GlobalPosition.Y < GlobalPosition.Y && (possiblePlayer.LinearVelocity.Y > LinearVelocity.Y || (possiblePlayer.LinearVelocity.Y >= LinearVelocity.Y && LinearVelocity.Y != 0))*/)
             {
-                Debug.Print("enemy should die");
+                // Kill player
+                dead = true;
+                animatedSprite.Animation = "Dead";
+                CollisionLayer = 0;
+                deathNoise.Play();
+            }
+            else
+            {
+                // Bounce back player
+                float launchDirectionX = (possiblePlayer.GlobalPosition.X - GlobalPosition.X) < 0 ? -1 : 1;
+                GD.Print(launchDirectionX.ToString());
+                possiblePlayer.ApplyCentralImpulse(new Vector2(launchDirectionX, -1f) * 400);
+            }
+        }
+    }
+
+    public override void _Process(double dt) {
+        if (dead) {
+            timeDead += (float)dt;
+
+            if (timeDead > 1.0f) {
+                QueueFree();
             }
         }
     }
