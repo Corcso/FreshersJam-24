@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cglfjw6x7kk63"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://cq7gwpeduad1n" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/BouncyMaterial.tres" id="1_i8rc8"]
+[ext_resource type="Shape2D" uid="uid://dvnc57rj8vec3" path="res://Scene Nodes/Object Nodes/Tiles/Templates/16x16Square.tres" id="1_x861n"]
+[ext_resource type="Texture2D" uid="uid://w07kcx1yd4ee" path="res://Sprites/Tiles/BouncyPlatform_Right_001.png" id="3_7fc3i"]
+[ext_resource type="OccluderPolygon2D" uid="uid://cw4yypop555po" path="res://Scene Nodes/Object Nodes/Tiles/Templates/16x16Occluder.tres" id="3_g2y7d"]
+
+[node name="Template16x16TileCollide" type="StaticBody2D"]
+physics_material_override = ExtResource("1_i8rc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("1_x861n")
+debug_color = Color(1, 1, 1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_7fc3i")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = ExtResource("3_g2y7d")

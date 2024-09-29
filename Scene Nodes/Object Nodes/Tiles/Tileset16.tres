@@ -1,8 +1,24 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://b1eflxxec7fbj"]
+[gd_resource type="TileSet" load_steps=14 format=3 uid="uid://b1eflxxec7fbj"]
 
+[ext_resource type="PackedScene" uid="uid://bvx8oy03lka50" path="res://Scene Nodes/Object Nodes/Tiles/Walls/StoneBrickLeftBorder.tscn" id="1_ga7gc"]
 [ext_resource type="PackedScene" uid="uid://d1a8vxmiupnj8" path="res://Scene Nodes/Object Nodes/Tiles/Debug/DebugBlockA.tscn" id="1_wgdg1"]
 [ext_resource type="PackedScene" uid="uid://d1ad1frma716j" path="res://Scene Nodes/Object Nodes/Tiles/Debug/DebugBlockB.tscn" id="2_rbxcp"]
+[ext_resource type="PackedScene" uid="uid://bgxxfxxyt62jt" path="res://Scene Nodes/Object Nodes/Tiles/Walls/StoneBrickLeftTopBottomBorder.tscn" id="2_wtbbc"]
+[ext_resource type="PackedScene" uid="uid://bg0sa7t5ey5gj" path="res://Scene Nodes/Object Nodes/Tiles/Walls/StoneBrickNoBorder.tscn" id="3_rdver"]
 [ext_resource type="PackedScene" uid="uid://7yw0xpyiuox5" path="res://Scene Nodes/Object Nodes/Tiles/Debug/DebugBlockC.tscn" id="3_y4827"]
+[ext_resource type="PackedScene" uid="uid://dok6axyycyfxi" path="res://Scene Nodes/Object Nodes/Tiles/Walls/StoneBrickRightBorder.tscn" id="4_uc6lk"]
+[ext_resource type="PackedScene" uid="uid://b2n8hivmmbudi" path="res://Scene Nodes/Object Nodes/Tiles/Walls/StoneBrickRighTopBottomBorder.tscn" id="5_eyb3i"]
+[ext_resource type="PackedScene" uid="uid://ciwqdkmxrjiu5" path="res://Scene Nodes/Object Nodes/Tiles/Walls/StoneBrickTopBottomBorder.tscn" id="6_jr2r2"]
+[ext_resource type="Texture2D" path="res://Sprites/Tiles/Backgrounds.tres" id="10_q06f3"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_qki2g"]
+resource_name = "Wall Tiles"
+scenes/1/scene = ExtResource("1_ga7gc")
+scenes/2/scene = ExtResource("2_wtbbc")
+scenes/3/scene = ExtResource("3_rdver")
+scenes/4/scene = ExtResource("4_uc6lk")
+scenes/5/scene = ExtResource("5_eyb3i")
+scenes/6/scene = ExtResource("6_jr2r2")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_y3ubj"]
 resource_name = "Debug"
@@ -10,6 +26,13 @@ scenes/1/scene = ExtResource("1_wgdg1")
 scenes/2/scene = ExtResource("2_rbxcp")
 scenes/3/scene = ExtResource("3_y4827")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bafsd"]
+texture = ExtResource("10_q06f3")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
 [resource]
 tile_size = Vector2i(32, 32)
 sources/1 = SubResource("TileSetScenesCollectionSource_y3ubj")
+sources/0 = SubResource("TileSetScenesCollectionSource_qki2g")
+sources/2 = SubResource("TileSetAtlasSource_bafsd")

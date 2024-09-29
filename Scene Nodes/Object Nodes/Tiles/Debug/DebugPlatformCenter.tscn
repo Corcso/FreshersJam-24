@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://4k86o2v5pste"]
 
 [ext_resource type="Texture2D" uid="uid://ci7xvxpn5m44o" path="res://Sprites/Debug/Platform 8 Center.png" id="1_kf1n7"]
-[ext_resource type="Script" path="res://Scripts/PlatformScript.cs" id="1_ylw13"]
+[ext_resource type="Script" path="res://Scripts/BouncePlatformScript.cs" id="1_ylw13"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hcfxl"]
 size = Vector2(8, 8)
