@@ -33,3 +33,6 @@ target_position = Vector2(-30, 0)
 
 [node name="rightWallCheck" type="RayCast2D" parent="."]
 target_position = Vector2(30, 0)
+
+[node name="DeathNoise" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(57, 27)
