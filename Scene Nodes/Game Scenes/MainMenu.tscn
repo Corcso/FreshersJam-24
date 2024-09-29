@@ -11,7 +11,7 @@
 [node name="MainMenu" type="Node2D"]
 texture_filter = 1
 
-[node name="Control" type="Control" parent="." node_paths=PackedStringArray("buttonSound")]
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,7 +22,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_prtiv")
 script = ExtResource("2_q271i")
-buttonSound = NodePath("../AudioStreamPlayer")
 
 [node name="Begin Button" type="TextureButton" parent="Control"]
 layout_mode = 0
