@@ -17,7 +17,10 @@ public partial class PauseMenuControler : Control
 
 		resumeButton.Pressed += () => ResumeGame();
 		menuButton.Pressed += () => ReturnToMenu();
-	}
+
+		VisibilityChanged += () => MyVisibilityChanged();
+
+    }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
@@ -32,4 +35,9 @@ public partial class PauseMenuControler : Control
     {
         gameManager.LoadMenuScene();
     }
+
+	private void MyVisibilityChanged() {
+		if (Visible) { }
+		else { }
+	}
 }
