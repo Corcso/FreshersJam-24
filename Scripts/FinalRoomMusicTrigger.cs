@@ -16,6 +16,7 @@ public partial class FinalRoomMusicTrigger : Area2D
 	float timeInCrossfade;
 
 	bool beginCrossfade;
+	bool crossfadeComplete;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -38,12 +39,14 @@ public partial class FinalRoomMusicTrigger : Area2D
 			if (timeInCrossfade >= crossfadeTime)
 			{
                 MainMusic.Playing = false;
+				beginCrossfade = false;
+				crossfadeComplete = true;
             }
 		}
 	}
 
 	private void Collided(Area2D body) {
-		if (body is WaterController) {
+		if (body is WaterController && !crossfadeComplete) {
             // Add switch here
 		
             FinalMusic.Playing = true;

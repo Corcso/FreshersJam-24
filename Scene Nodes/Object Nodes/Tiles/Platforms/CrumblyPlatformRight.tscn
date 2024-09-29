@@ -31,9 +31,9 @@ debug_color = Color(1, 1, 1, 0)
 
 [node name="FirstCrumbleSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_j4ngf")
-volume_db = -14.054
+volume_db = -17.802
 pitch_scale = 0.5
 
 [node name="FullyCrumbleSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_s24ty")
-volume_db = -21.55
+volume_db = -25.298

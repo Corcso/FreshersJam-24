@@ -11,11 +11,14 @@ public partial class GameManager : Node
 	Node2D activeGameScene;
 	Node2D activeMenuScene;
 
+	// Set by the pause menu itself when it awakes
+	public Control activePauseMenu;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		gameScene = ResourceLoader.Load<PackedScene>("res://Scene Nodes/Game Scenes/GameScene.tscn");
-		activeMenuScene = GetTree().Root.GetNode<Node2D>("./MainMenu");
+		//activeMenuScene = GetTree().Root.GetNode<Node2D>("./MainMenu");
 
 		ProcessMode = ProcessModeEnum.Always;
     }
@@ -56,18 +59,16 @@ public partial class GameManager : Node
 
 	public void PauseGame()
 	{
-
         currentGameState = GameState.PAUSED;
         GetTree().Paused = true;
-
+        activePauseMenu.Show();
     }
 
 	public void UnpauseGame()
 	{
-
         currentGameState = GameState.PLAYING;
         GetTree().Paused = false;
-
+		activePauseMenu.Hide();
     }
 
 }
