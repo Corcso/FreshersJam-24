@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://hdio8f86430h"]
+[gd_scene load_steps=8 format=3 uid="uid://b181dr1xq7hu0"]
 
 [ext_resource type="Script" path="res://Scripts/CrumblyPlatform.cs" id="1_5afrc"]
 [ext_resource type="Shape2D" uid="uid://dvnc57rj8vec3" path="res://Scene Nodes/Object Nodes/Tiles/Templates/16x16Square.tres" id="1_s8t8q"]
 [ext_resource type="OccluderPolygon2D" uid="uid://cw4yypop555po" path="res://Scene Nodes/Object Nodes/Tiles/Templates/16x16Occluder.tres" id="2_6mkda"]
 [ext_resource type="Texture2D" uid="uid://brabk4me8r30q" path="res://Sprites/Tiles/CrumbledPlatform_Left_001.png" id="2_drp53"]
 [ext_resource type="Texture2D" uid="uid://b2qvmlu30ya2n" path="res://Sprites/Tiles/CrumblyPlatform_Left_001.png" id="4_dfvfk"]
+[ext_resource type="AudioStream" uid="uid://cjvrl2goxwnjo" path="res://Audio/Landingbreak.wav" id="6_st60v"]
+[ext_resource type="AudioStream" uid="uid://cb1fmp3hf4s1" path="res://Audio/RockCollapse.wav" id="7_kbbqe"]
 
 [node name="Template16x16TileCollide" type="StaticBody2D"]
 script = ExtResource("1_5afrc")
@@ -28,5 +30,10 @@ shape = ExtResource("1_s8t8q")
 debug_color = Color(1, 1, 1, 0)
 
 [node name="FirstCrumbleSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_st60v")
+volume_db = -14.054
+pitch_scale = 0.5
 
 [node name="FullyCrumbleSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_kbbqe")
+volume_db = -21.55

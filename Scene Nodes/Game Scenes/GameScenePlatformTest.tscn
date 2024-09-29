@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://fua1jkit2enw"]
+[gd_scene load_steps=11 format=3 uid="uid://fua1jkit2enw"]
 
 [ext_resource type="TileSet" uid="uid://b1eflxxec7fbj" path="res://Scene Nodes/Object Nodes/Tiles/Tileset16.tres" id="1_kic2y"]
 [ext_resource type="SpriteFrames" path="res://Sprites/WaterAnimation.tres" id="2_hyitk"]
@@ -8,8 +8,11 @@
 [ext_resource type="AudioStream" uid="uid://d1vxirfp7uly7" path="res://Audio/DripAmbiant.wav" id="6_4pvxy"]
 [ext_resource type="AudioStream" uid="uid://bhdgjt3y0i7kt" path="res://Audio/BubblingAmbiant.wav" id="7_5j7qj"]
 [ext_resource type="AudioStream" uid="uid://omv8206c0shj" path="res://Audio/Calm music.wav" id="8_8joq4"]
+[ext_resource type="Texture2D" uid="uid://cw7r5ejci3nt" path="res://Sprites/Decoration/BlueMushroom_001.png" id="9_0ohbs"]
+[ext_resource type="Texture2D" uid="uid://bjrw36rsrmkri" path="res://Sprites/Decoration/Light Sprites/BluePointLight.png" id="10_gdind"]
 
 [node name="GameScene" type="Node2D"]
+modulate = Color(0.509286, 0.509286, 0.509286, 1)
 texture_filter = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -58,3 +61,33 @@ autoplay = true
 stream = ExtResource("8_8joq4")
 volume_db = -11.243
 autoplay = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-104, -152)
+texture = ExtResource("9_0ohbs")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-104, -151)
+shadow_enabled = true
+texture = ExtResource("10_gdind")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -212.0
+offset_top = -404.0
+offset_right = 236.0
+offset_bottom = -84.0
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect"]
+offset_left = 25.0
+offset_top = 19.0
+offset_right = 409.0
+offset_bottom = 147.0
+color = Color(0.180392, 1, 1, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="ColorRect"]
+offset_left = 28.0
+offset_top = 172.0
+offset_right = 412.0
+offset_bottom = 300.0
+color = Color(0.180392, 1, 1, 1)

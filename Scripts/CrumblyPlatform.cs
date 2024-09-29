@@ -16,8 +16,8 @@ public partial class CrumblyPlatform : StaticBody2D
 	AudioStreamPlayer2D firstCrumbleSFX; bool firstCrumblePlayOnce = true;
 	AudioStreamPlayer2D fullyCrumbleSFX; bool fullyCrumblePlayOnce = true;
 
-    // Timing
-    float crumbleTime = 1.5f;
+	// Timing
+	float crumbleTime = 1.5f;
 	bool crumbling = false;
 
 	// Called when the node enters the scene tree for the first time.
@@ -28,7 +28,7 @@ public partial class CrumblyPlatform : StaticBody2D
 		sprite = GetNode<Sprite2D>("./Sprite2D");
 
 		firstCrumbleSFX = GetNode<AudioStreamPlayer2D>("./FirstCrumbleSFX");
-        fullyCrumbleSFX = GetNode<AudioStreamPlayer2D>("./FullyCrumbleSFX");
+		fullyCrumbleSFX = GetNode<AudioStreamPlayer2D>("./FullyCrumbleSFX");
 
 		detectionArea.BodyEntered += (Node2D body) => Collision(body);
 	}
@@ -37,8 +37,8 @@ public partial class CrumblyPlatform : StaticBody2D
 	public override void _Process(double delta)
 	{
 		if (crumbling) {
-            if (firstCrumblePlayOnce) { firstCrumbleSFX.Play(); firstCrumblePlayOnce = false; }
-            crumbleTime -= (float)delta;
+			if (firstCrumblePlayOnce) { firstCrumbleSFX.Play(); firstCrumblePlayOnce = false; }
+			crumbleTime -= (float)delta;
 			if (crumbleTime < 0) { 
 				QueueFree();
 			}

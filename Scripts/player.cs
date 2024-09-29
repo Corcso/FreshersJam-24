@@ -34,15 +34,27 @@ public partial class player : RigidBody2D
     // Get the gravity from the project settings to be synced with RigidBody nodes.
     public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
+	// Animator
+	AnimatedSprite2D spriteAnimator;
+	string animationState = "Idle";
+	bool animationFlipped = false;
+
     public override void _Ready()
     {
         gameManager = GetTree().Root.GetNode<GameManager>("./GameManager");
         floorChecker = GetNode<ShapeCast2D>("./FloorCaster");
 		floorChecker.ExcludeParent = true;
+
+		spriteAnimator = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		spriteAnimator.Play("Idle");
     }
 
     public override void _IntegrateForces(PhysicsDirectBodyState2D state)
 	{
+		string thisFramesAnimationState = "Idle";
+		bool thisFramesAnimationFlipped = animationFlipped;
+
+
 		Vector2 velocity = state.LinearVelocity;
 		//velocity.Y += gravity * (float)delta;
 
@@ -53,7 +65,18 @@ public partial class player : RigidBody2D
 
 		}
 
-		float directionX = Input.GetAxis("Left", "Right");
+        // Default animation to idle
+       //spriteAnimator.Animation = "Idle";
+
+
+        float directionX = Input.GetAxis("Left", "Right");
+		// First set us walking if we are this is the lowest priority animation
+		if (directionX != 0) {
+			thisFramesAnimationState = "Walk";
+			thisFramesAnimationFlipped = directionX < 0;
+		}
+
+
 		//direction.X = Input.GetActionStrength("Right") - Input.GetActionStrength("Left");
 		if (floorChecker.IsColliding()&&jumpDouble==true)
 		{
@@ -92,7 +115,8 @@ public partial class player : RigidBody2D
         if (Input.IsActionPressed("Sprint"))
 		{
 			velocity.X = directionX * moveVelocity*2;
-		}
+            thisFramesAnimationState = "Run";
+        }
 		else
 		{
 			velocity.X = directionX * moveVelocity;
@@ -115,13 +139,31 @@ public partial class player : RigidBody2D
 			}
 		}
 		state.LinearVelocity = velocity;
-		//MoveAndSlide();
-		}
+
+
+        if (thisFramesAnimationState != animationState || thisFramesAnimationFlipped != animationFlipped)
+        {
+            spriteAnimator.Play(thisFramesAnimationState);
+            animationState = thisFramesAnimationState;
+            spriteAnimator.FlipH = thisFramesAnimationFlipped;
+            animationFlipped = thisFramesAnimationFlipped;
+        }
+
+    }
 
 	public void BouncePlayer(float bounceEfficiency) {
 		// Set bounce me true, will be handled next update
 		bounceMe = true;
 		// Set the bounce efficiency
 		this.bounceEfficiency = bounceEfficiency;
+	}
+
+	public void ChangeAnimationState(string animationName, bool flipped) {
+		if (animationName != animationState || animationFlipped != flipped) { 
+			spriteAnimator.Play(animationName);
+			animationState = animationName;
+			spriteAnimator.FlipH = flipped;
+			animationFlipped = flipped;
+		}
 	}
 }
