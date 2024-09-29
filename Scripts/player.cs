@@ -6,7 +6,7 @@ public partial class player : RigidBody2D
 
 	[Export]
 	public float moveVelocity = 100.0f;
-	public float dashVelocity = 1000.0f;
+	public float dashVelocity = 700.0f;
 	public float jumpVelocity= -400.0f;
 
 	float timeDash = 0;
@@ -47,6 +47,7 @@ public partial class player : RigidBody2D
 
 		spriteAnimator = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		spriteAnimator.Play("Idle");
+		//this.Position = 
     }
 
     public override void _IntegrateForces(PhysicsDirectBodyState2D state)
@@ -56,13 +57,28 @@ public partial class player : RigidBody2D
 
 
 		Vector2 velocity = state.LinearVelocity;
-		//velocity.Y += gravity * (float)delta;
+        //velocity.Y += gravity * (float)delta;
 
-		if (gameManager.currentGameState == GameManager.GameState.DEAD)
+        if (this.Position.Y < -4855 && (this.Position.X > 71 || this.Position.X < -72) && floorChecker.IsColliding() && gameManager.currentGameState != GameManager.GameState.WON)
+        {
+            //Player completing level
+            GD.Print("WIN!");
+            gameManager.currentGameState = GameManager.GameState.WON;
+
+        }
+
+        if (gameManager.currentGameState == GameManager.GameState.DEAD)
 		{
 
 			return;
 
+		}
+
+		if (gameManager.currentGameState == GameManager.GameState.WON)
+		{
+			moveVelocity = 0.0f;
+			dashVelocity = 0.0f;
+			GD.Print("WINNER!");
 		}
 
         // Default animation to idle
