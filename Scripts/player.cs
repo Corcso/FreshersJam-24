@@ -31,7 +31,7 @@ public partial class player : RigidBody2D
 	ShapeCast2D floorChecker;
 	GameManager gameManager;
 	Area2D water;
-	Control deathScreen;
+	//Control deathScreen;
 
     // Get the gravity from the project settings to be synced with RigidBody nodes.
     public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
@@ -48,7 +48,7 @@ public partial class player : RigidBody2D
 		floorChecker.ExcludeParent = true;
 
 		water = GetNode<Area2D>("../Water2");
-		deathScreen = GetNode<Control>("../Death Screen");
+		//deathScreen = GetNode<Control>("../Death Screen");
 
 		spriteAnimator = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		spriteAnimator.Play("Idle");
