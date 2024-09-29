@@ -102,7 +102,7 @@ offset_right = 412.0
 offset_bottom = 300.0
 color = Color(0.180392, 1, 1, 1)
 
-[node name="Pause Menu" type="Control" parent="." node_paths=PackedStringArray("Button", "MenuSound")]
+[node name="Pause Menu" type="Control" parent="."]
 visible = false
 top_level = true
 light_mask = 0
@@ -113,8 +113,6 @@ offset_top = -409.0
 offset_right = -188.0
 offset_bottom = -369.0
 script = ExtResource("11_l2ftg")
-Button = NodePath("AudioStreamPlayer")
-MenuSound = NodePath("AudioStreamPlayer2")
 
 [node name="TextureRect" type="TextureRect" parent="Pause Menu"]
 layout_mode = 0
