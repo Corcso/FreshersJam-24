@@ -69,9 +69,19 @@ public partial class enemyBasic : RigidBody2D
         player possiblePlayer = body.GetParent().GetNodeOrNull<player>("./" + body.Name);
         if (possiblePlayer != null)
         {
-            if (possiblePlayer.GlobalPosition.Y > GlobalPosition.Y && possiblePlayer.LinearVelocity.Y > LinearVelocity.Y)
+            Debug.Print("yep thats the player");
+            Debug.Print(possiblePlayer.GlobalPosition.Y.ToString() + ", " + GlobalPosition.Y.ToString());
+            Debug.Print(possiblePlayer.LinearVelocity.Y.ToString() + ", " + LinearVelocity.Y.ToString());
+            //check if 
+            if (possiblePlayer.GlobalPosition.Y < GlobalPosition.Y && (possiblePlayer.LinearVelocity.Y > LinearVelocity.Y || (possiblePlayer.LinearVelocity.Y >= LinearVelocity.Y && LinearVelocity.Y != 0)))
             {
                 Debug.Print("enemy should die");
+                //possiblePlayer.BouncePlayer(100.0f);
+                QueueFree();
+            }
+            else
+            {
+                Debug.Print("Player should die");
             }
         }
     }
