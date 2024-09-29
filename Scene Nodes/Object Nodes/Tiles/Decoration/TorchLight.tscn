@@ -53,7 +53,7 @@ script = ExtResource("1_bfbcs")
 
 [node name="TorchAnimate" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o0l6d")
-frame_progress = 0.327189
+frame_progress = 0.349447
 
 [node name="TorchPointLight" type="PointLight2D" parent="."]
 color = Color(1, 0.660569, 0.487714, 1)
