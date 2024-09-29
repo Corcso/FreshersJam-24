@@ -70,3 +70,24 @@ texture = ExtResource("9_0ohbs")
 position = Vector2(-104, -151)
 shadow_enabled = true
 texture = ExtResource("10_gdind")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -212.0
+offset_top = -404.0
+offset_right = 236.0
+offset_bottom = -84.0
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect"]
+offset_left = 25.0
+offset_top = 19.0
+offset_right = 409.0
+offset_bottom = 147.0
+color = Color(0.180392, 1, 1, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="ColorRect"]
+offset_left = 28.0
+offset_top = 172.0
+offset_right = 412.0
+offset_bottom = 300.0
+color = Color(0.180392, 1, 1, 1)
