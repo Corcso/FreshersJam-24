@@ -7,7 +7,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mvwsw"]
 radius = 16.0
-height = 38.0
+height = 40.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ngd66"]
 
@@ -39,9 +39,10 @@ pitch_scale = 1.43
 current = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_mvwsw")
 
 [node name="FloorCaster" type="ShapeCast2D" parent="."]
-position = Vector2(-10, 15)
+position = Vector2(0, 14)
 shape = SubResource("RectangleShape2D_ngd66")
-target_position = Vector2(20, 0)
+target_position = Vector2(0, 0)
