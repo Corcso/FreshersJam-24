@@ -12,6 +12,7 @@ public partial class GameManager : Node
     PackedScene menuScene;
 
 	Node2D activeMenuScene;
+	public Control activeDeathMenu;
 
 	// Set by the pause menu itself when it awakes
 	public Control activePauseMenu;
@@ -40,6 +41,10 @@ public partial class GameManager : Node
 				UnpauseGame();
 			}
 
+		}
+
+		if (currentGameState == GameState.DEAD) {
+			activeDeathMenu.Show();
 		}
     }
 
