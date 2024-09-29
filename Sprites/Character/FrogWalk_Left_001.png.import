@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxfo310njn6l6"
-path="res://.godot/imported/FrogWalk_001.png-61f9799764228d1b0229616ea7008cd8.ctex"
+uid="uid://co227swpyuxyp"
+path="res://.godot/imported/FrogWalk_Left_001.png-0b6bc6ebf68ce722d9a711250bfc4894.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/FrogWalk_001.png"
-dest_files=["res://.godot/imported/FrogWalk_001.png-61f9799764228d1b0229616ea7008cd8.ctex"]
+source_file="res://Sprites/Character/FrogWalk_Left_001.png"
+dest_files=["res://.godot/imported/FrogWalk_Left_001.png-0b6bc6ebf68ce722d9a711250bfc4894.ctex"]
 
 [params]
 
