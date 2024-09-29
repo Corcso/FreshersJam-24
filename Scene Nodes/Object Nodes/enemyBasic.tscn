@@ -25,8 +25,8 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bf7uc"]
-size = Vector2(32, 32)
+[sub_resource type="CircleShape2D" id="CircleShape2D_cly44"]
+radius = 16.0
 
 [node name="enemyBasic" type="RigidBody2D"]
 lock_rotation = true
@@ -40,7 +40,7 @@ sprite_frames = SubResource("SpriteFrames_6qniw")
 frame_progress = 0.351716
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_bf7uc")
+shape = SubResource("CircleShape2D_cly44")
 
 [node name="rightFoot" type="RayCast2D" parent="."]
 target_position = Vector2(30, 30)
