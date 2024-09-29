@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dok6axyycyfxi" path="res://Scene Nodes/Object Nodes/Tiles/Walls/StoneBrickRightBorder.tscn" id="4_uc6lk"]
 [ext_resource type="PackedScene" uid="uid://b2n8hivmmbudi" path="res://Scene Nodes/Object Nodes/Tiles/Walls/StoneBrickRighTopBottomBorder.tscn" id="5_eyb3i"]
 [ext_resource type="PackedScene" uid="uid://ciwqdkmxrjiu5" path="res://Scene Nodes/Object Nodes/Tiles/Walls/StoneBrickTopBottomBorder.tscn" id="6_jr2r2"]
-[ext_resource type="Texture2D" uid="uid://b28ofu6e4wfdv" path="res://Sprites/Tiles/Backgrounds.tres" id="10_q06f3"]
+[ext_resource type="Texture2D" path="res://Sprites/Tiles/Backgrounds.tres" id="10_q06f3"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_qki2g"]
 resource_name = "Wall Tiles"
