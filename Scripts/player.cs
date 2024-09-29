@@ -236,20 +236,21 @@ public partial class player : RigidBody2D
 	private string EvaluateAnimation(AnimationStates validStates, string thisFramesAnimationState)
 	{
 		//let some animations play out, reset jump anim only for double jump
-        if (animationState == "Jump" && spriteAnimator.Frame < 4) {
+		if (animationState == "Jump" && spriteAnimator.Frame < 4)
+		{
 			if (LinearVelocity.Y > 0 && !validStates.HasFlag(AnimationStates.ANIM_JUMP_DOUBLE)) return "Fall";
 			if (validStates.HasFlag(AnimationStates.ANIM_JUMP_DOUBLE)) { spriteAnimator.Frame = 0; }
-			return "Jump"; 
+			return "Jump";
 		}
-        if (animationState == "Dash" && spriteAnimator.Frame < 2)
-        {
-            return "Dash";
-        }
+		if (animationState == "Dash" && spriteAnimator.Frame < 2)
+		{
+			return "Dash";
+		}
 
-        //decide on animation to play
-        if (validStates.HasFlag(AnimationStates.ANIM_DASH)) return "Dash";
-        else
-        {
+		//decide on animation to play
+		if (validStates.HasFlag(AnimationStates.ANIM_DASH)) return "Dash";
+		else
+		{
 			if (validStates.HasFlag(AnimationStates.ANIM_FALL)) { thisFramesAnimationState = "Fall"; }
 			else if (validStates.HasFlag(AnimationStates.ANIM_JUMP) || validStates.HasFlag(AnimationStates.ANIM_JUMP_DOUBLE)) { thisFramesAnimationState = "Jump"; }
 			else if (validStates.HasFlag(AnimationStates.ANIM_WALK))
@@ -259,10 +260,12 @@ public partial class player : RigidBody2D
 			}
 			else if (floorChecker.IsColliding()) thisFramesAnimationState = "Idle";
 			else thisFramesAnimationState = "Fall";
-        }
+		}
 		return thisFramesAnimationState;
+	}
 
-    public override void _Process(double delta)
+
+	public override void _Process(double delta)
     {
 		if (gameManager.currentGameState == GameManager.GameState.DEAD)
 		{
