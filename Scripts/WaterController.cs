@@ -51,7 +51,7 @@ public partial class WaterController : Area2D
 	private void Collided(Node2D body) {
 		player potentialPlayer = body.GetParent().GetNodeOrNull<player>("./" + body.Name);
 		if (potentialPlayer != null) {
-			GD.Print("DIE");
+			//GD.Print("DIE");
             gameManager.currentGameState = GameManager.GameState.DEAD;
 
         }

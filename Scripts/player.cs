@@ -47,7 +47,7 @@ public partial class player : RigidBody2D
         floorChecker = GetNode<ShapeCast2D>("./FloorCaster");
 		floorChecker.ExcludeParent = true;
 
-		water = GetNode<Area2D>("../Water2");
+		water = GetNode<Area2D>("../Water");
 		//deathScreen = GetNode<Control>("../Death Screen");
 
 		spriteAnimator = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
@@ -206,7 +206,7 @@ public partial class player : RigidBody2D
 			Vector2 vel = LinearVelocity;
 
 			GravityScale -= 22.5f * (float)delta;
-			GD.Print(GravityScale);
+			//GD.Print(GravityScale);
 
 			//vel.Y -= gravity * (float)delta;
 
