@@ -1,0 +1,34 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://b2dwkdaslak6s"]
+
+[ext_resource type="Texture2D" uid="uid://b3l0bk1spyxha" path="res://Sprites/Slime/SlimeDeath_001.png" id="1_o80mw"]
+[ext_resource type="Texture2D" uid="uid://vhntttowvimh" path="res://Sprites/Slime/Slime_001.png" id="2_4sdn8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ow8ko"]
+atlas = ExtResource("2_4sdn8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pa4vq"]
+atlas = ExtResource("2_4sdn8")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_o80mw")
+}],
+"loop": true,
+"name": &"Dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ow8ko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pa4vq")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]

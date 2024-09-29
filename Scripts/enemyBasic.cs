@@ -14,6 +14,8 @@ public partial class enemyBasic : RigidBody2D
     [Export]
     public bool edgeDetect = true;
 
+    AudioStreamPlayer2D deathNoise;
+
     // Get the gravity from the project settings to be synced with RigidBody nodes.
     public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
@@ -31,11 +33,14 @@ public partial class enemyBasic : RigidBody2D
         BodyEntered += (Node body) => Collision(body);
 
         animatedSprite = GetNode<AnimatedSprite2D>("./AnimatedSprite2D");
+        deathNoise = GetNode<AudioStreamPlayer2D>("./DeathNoise");
 
         deathArea = GetNode<RayCast2D>("deathArea");
         leftWallCheck = GetNode<RayCast2D>("leftWallCheck");
         rightWallCheck = GetNode<RayCast2D>("rightWallCheck");
         deathArea.ExcludeParent = true;
+
+        animatedSprite.Play("Walk");
     }
 
     public override void _IntegrateForces(PhysicsDirectBodyState2D state)
@@ -99,6 +104,7 @@ public partial class enemyBasic : RigidBody2D
                 dead = true;
                 animatedSprite.Animation = "Dead";
                 CollisionLayer = 0;
+                deathNoise.Play();
             }
             else
             {
