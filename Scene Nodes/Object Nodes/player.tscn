@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cw3c2vhsxh3e"]
 
 [ext_resource type="Script" path="res://Scripts/player.cs" id="1_t4ycn"]
-[ext_resource type="SpriteFrames" uid="uid://bg24qitdxkvoe" path="res://Sprites/Character/CharacterAnimation.tres" id="2_r8kmj"]
+[ext_resource type="SpriteFrames" uid="uid://b7hlj0h2yv0qi" path="res://Sprites/Character/CharacterAnimation.tres" id="2_r8kmj"]
 [ext_resource type="AudioStream" uid="uid://cmjixi2koq2p2" path="res://Audio/Jump.wav" id="3_vccq4"]
 [ext_resource type="AudioStream" uid="uid://bqqfok1p2dmip" path="res://Audio/Dash.mp3" id="4_jr018"]
 
