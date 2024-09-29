@@ -79,11 +79,11 @@ public partial class enemyBasic : RigidBody2D
 	}
 
     private void Collision(Node body) {
-        Debug.Print("collision with " + body.Name.ToString());
+        //Debug.Print("collision with " + body.Name.ToString());
         player possiblePlayer = body as player;
         if (possiblePlayer != null && !dead)
         {
-            Debug.Print("yep thats the player");
+            //Debug.Print("yep thats the player");
             Debug.Print(possiblePlayer.GlobalPosition.Y.ToString() + ", " + GlobalPosition.Y.ToString());
             Debug.Print(possiblePlayer.LinearVelocity.Y.ToString() + ", " + LinearVelocity.Y.ToString());
             //check if 

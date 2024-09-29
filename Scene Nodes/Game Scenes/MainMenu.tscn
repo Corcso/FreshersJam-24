@@ -56,7 +56,7 @@ position = Vector2(417, 1054)
 scale = Vector2(1, 1.00083)
 sprite_frames = ExtResource("5_rnwl8")
 
-[node name="Control" type="Control" parent="AudioStreamPlayer2/Foreground Tilemap" node_paths=PackedStringArray("buttonsound")]
+[node name="Control" type="Control" parent="AudioStreamPlayer2/Foreground Tilemap" node_paths=PackedStringArray("buttonsound", "MenuMusic")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,6 +70,7 @@ grow_vertical = 2
 theme = ExtResource("1_prtiv")
 script = ExtResource("2_q271i")
 buttonsound = NodePath("../../../AudioStreamPlayer")
+MenuMusic = NodePath("../..")
 
 [node name="Begin Button" type="TextureButton" parent="AudioStreamPlayer2/Foreground Tilemap/Control"]
 layout_mode = 0
