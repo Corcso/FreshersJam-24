@@ -1,0 +1,149 @@
+[gd_scene load_steps=19 format=3 uid="uid://fua1jkit2enw"]
+
+[ext_resource type="TileSet" uid="uid://b1eflxxec7fbj" path="res://Scene Nodes/Object Nodes/Tiles/Tileset16.tres" id="1_kic2y"]
+[ext_resource type="SpriteFrames" path="res://Sprites/WaterAnimation.tres" id="2_hyitk"]
+[ext_resource type="AudioStream" uid="uid://drlkx4tdjs71t" path="res://Audio/eternalscreaming render 001.wav" id="3_l2d3u"]
+[ext_resource type="TileSet" uid="uid://hpcxllsil4j" path="res://Scene Nodes/Object Nodes/Tiles/Tileset8.tres" id="4_uugjh"]
+[ext_resource type="PackedScene" uid="uid://cw3c2vhsxh3e" path="res://Scene Nodes/Object Nodes/player.tscn" id="5_1fll1"]
+[ext_resource type="AudioStream" uid="uid://d1vxirfp7uly7" path="res://Audio/DripAmbiant.wav" id="6_4pvxy"]
+[ext_resource type="AudioStream" uid="uid://bhdgjt3y0i7kt" path="res://Audio/BubblingAmbiant.wav" id="7_5j7qj"]
+[ext_resource type="AudioStream" uid="uid://omv8206c0shj" path="res://Audio/Calm music.wav" id="8_8joq4"]
+[ext_resource type="Texture2D" uid="uid://cw7r5ejci3nt" path="res://Sprites/Decoration/BlueMushroom_001.png" id="9_0ohbs"]
+[ext_resource type="Texture2D" uid="uid://bjrw36rsrmkri" path="res://Sprites/Decoration/Light Sprites/BluePointLight.png" id="10_gdind"]
+[ext_resource type="Script" path="res://Scripts/PauseMenuControler.cs" id="11_l2ftg"]
+[ext_resource type="Texture2D" uid="uid://ccvpjihensbps" path="res://Sprites/UI/PauseBackground.png" id="12_jw8vp"]
+[ext_resource type="Texture2D" uid="uid://c2lrtvs7lc14" path="res://Sprites/UI/Resume Button.png" id="13_xrdjn"]
+[ext_resource type="Texture2D" uid="uid://bwsp8ocgpl8mg" path="res://Sprites/UI/Resume Button Pressed.png" id="14_knlks"]
+[ext_resource type="Texture2D" uid="uid://c2j624a1dign1" path="res://Sprites/UI/Menu Button.png" id="15_nxtdm"]
+[ext_resource type="Texture2D" uid="uid://ejxytosbn0oj" path="res://Sprites/UI/Menu Button Pressed.png" id="16_fgkb0"]
+[ext_resource type="AudioStream" uid="uid://dvkf2onvdg3tw" path="res://Audio/Click.mp3" id="17_0428e"]
+[ext_resource type="AudioStream" uid="uid://c5esah0ntcx3m" path="res://Audio/Menu.wav" id="18_mla3j"]
+
+[node name="GameScene" type="Node2D"]
+modulate = Color(0.509286, 0.509286, 0.509286, 1)
+texture_filter = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -256)
+
+[node name="Background Tilemap" type="TileMap" parent="."]
+tile_set = ExtResource("1_kic2y")
+format = 2
+layer_0/tile_data = PackedInt32Array(-917517, 2, 0, -851981, 2, 0, -786445, 2, 0, -720909, 2, 0, -655373, 2, 0, -589837, 2, 0, -524301, 2, 0, -458765, 2, 0, -393229, 2, 0, -327693, 2, 0, -262157, 2, 0, -196621, 2, 0, -131085, 2, 0, -65549, 2, 0, -917516, 2, 0, -851980, 2, 0, -786444, 2, 0, -720908, 2, 0, -655372, 2, 0, -589836, 2, 0, -524300, 2, 0, -458764, 2, 0, -393228, 2, 0, -327692, 2, 0, -262156, 2, 0, -196620, 2, 0, -131084, 2, 0, -65548, 2, 0, -917515, 2, 0, -851979, 2, 0, -786443, 2, 0, -720907, 2, 0, -655371, 2, 0, -589835, 2, 0, -524299, 2, 0, -458763, 2, 0, -393227, 2, 0, -327691, 2, 0, -262155, 2, 0, -196619, 2, 0, -131083, 2, 0, -65547, 2, 0, -917514, 2, 0, -851978, 2, 0, -786442, 2, 0, -720906, 2, 0, -655370, 2, 0, -589834, 2, 0, -524298, 2, 0, -458762, 2, 0, -393226, 2, 0, -327690, 2, 0, -262154, 2, 0, -196618, 2, 0, -131082, 2, 0, -65546, 2, 0, -917513, 2, 0, -851977, 2, 0, -786441, 2, 0, -720905, 2, 0, -655369, 2, 0, -589833, 2, 0, -524297, 2, 0, -458761, 2, 0, -393225, 2, 0, -327689, 2, 0, -262153, 2, 0, -196617, 2, 0, -131081, 2, 0, -65545, 2, 0, -917512, 2, 0, -851976, 2, 0, -786440, 2, 0, -720904, 2, 0, -655368, 2, 0, -589832, 2, 0, -524296, 2, 0, -458760, 2, 0, -393224, 2, 0, -327688, 2, 0, -262152, 2, 0, -196616, 2, 0, -131080, 2, 0, -65544, 2, 0, -917511, 2, 0, -851975, 2, 0, -786439, 2, 0, -720903, 2, 0, -655367, 2, 0, -589831, 2, 0, -524295, 2, 0, -458759, 2, 0, -393223, 2, 0, -327687, 2, 0, -262151, 2, 0, -196615, 2, 0, -131079, 2, 0, -65543, 2, 0, -917510, 2, 0, -851974, 2, 0, -786438, 2, 0, -720902, 2, 0, -655366, 2, 0, -589830, 2, 0, -524294, 2, 0, -458758, 2, 0, -393222, 2, 0, -327686, 2, 0, -262150, 2, 0, -196614, 2, 0, -131078, 2, 0, -65542, 2, 0, -917509, 2, 0, -851973, 2, 0, -786437, 2, 0, -720901, 2, 0, -655365, 2, 0, -589829, 2, 0, -524293, 2, 0, -458757, 2, 0, -393221, 2, 0, -327685, 2, 0, -262149, 2, 0, -196613, 2, 0, -131077, 2, 0, -65541, 2, 0, -917508, 2, 0, -851972, 2, 0, -786436, 2, 0, -720900, 2, 0, -655364, 2, 0, -589828, 2, 0, -524292, 2, 0, -458756, 2, 0, -393220, 2, 0, -327684, 2, 0, -262148, 2, 0, -196612, 2, 0, -131076, 2, 0, -65540, 2, 0, -917507, 2, 0, -851971, 2, 0, -786435, 2, 0, -720899, 2, 0, -655363, 2, 0, -589827, 2, 0, -524291, 2, 0, -458755, 2, 0, -393219, 2, 0, -327683, 2, 0, -262147, 2, 0, -196611, 2, 0, -131075, 2, 0, -65539, 2, 0, -917506, 2, 0, -851970, 2, 0, -786434, 2, 0, -720898, 2, 0, -655362, 2, 0, -589826, 2, 0, -524290, 2, 0, -458754, 2, 0, -393218, 2, 0, -327682, 2, 0, -262146, 2, 0, -196610, 2, 0, -131074, 2, 0, -65538, 2, 0, -917505, 2, 0, -851969, 2, 0, -786433, 2, 0, -720897, 2, 0, -655361, 2, 0, -589825, 2, 0, -524289, 2, 0, -458753, 2, 0, -393217, 2, 0, -327681, 2, 0, -262145, 2, 0, -196609, 2, 0, -131073, 2, 0, -65537, 2, 0, -983040, 2, 0, -917504, 2, 0, -851968, 2, 0, -786432, 2, 0, -720896, 2, 0, -655360, 2, 0, -589824, 2, 0, -524288, 2, 0, -458752, 2, 0, -393216, 2, 0, -327680, 2, 0, -262144, 2, 0, -196608, 2, 0, -131072, 2, 0, -983039, 2, 0, -917503, 2, 0, -851967, 2, 0, -786431, 2, 0, -720895, 2, 0, -655359, 2, 0, -589823, 2, 0, -524287, 2, 0, -458751, 2, 0, -393215, 2, 0, -327679, 2, 0, -262143, 2, 0, -196607, 2, 0, -131071, 2, 0, -983038, 2, 0, -917502, 2, 0, -851966, 2, 0, -786430, 2, 0, -720894, 2, 0, -655358, 2, 0, -589822, 2, 0, -524286, 2, 0, -458750, 2, 0, -393214, 2, 0, -327678, 2, 0, -262142, 2, 0, -196606, 2, 0, -131070, 2, 0, -983037, 2, 0, -917501, 2, 0, -851965, 2, 0, -786429, 2, 0, -720893, 2, 0, -655357, 2, 0, -589821, 2, 0, -524285, 2, 0, -458749, 2, 0, -393213, 2, 0, -327677, 2, 0, -262141, 2, 0, -196605, 2, 0, -131069, 2, 0, -983036, 2, 0, -917500, 2, 0, -851964, 2, 0, -786428, 2, 0, -720892, 2, 0, -655356, 2, 0, -589820, 2, 0, -524284, 2, 0, -458748, 2, 0, -393212, 2, 0, -327676, 2, 0, -262140, 2, 0, -196604, 2, 0, -131068, 2, 0, -983035, 2, 0, -917499, 2, 0, -851963, 2, 0, -786427, 2, 0, -720891, 2, 0, -655355, 2, 0, -589819, 2, 0, -524283, 2, 0, -458747, 2, 0, -393211, 2, 0, -327675, 2, 0, -262139, 2, 0, -196603, 2, 0, -131067, 2, 0, -983034, 2, 0, -917498, 2, 0, -851962, 2, 0, -786426, 2, 0, -720890, 2, 0, -655354, 2, 0, -589818, 2, 0, -524282, 2, 0, -458746, 2, 0, -393210, 2, 0, -327674, 2, 0, -262138, 2, 0, -196602, 2, 0, -131066, 2, 0, -983033, 2, 0, -917497, 2, 0, -851961, 2, 0, -786425, 2, 0, -720889, 2, 0, -655353, 2, 0, -589817, 2, 0, -524281, 2, 0, -458745, 2, 0, -393209, 2, 0, -327673, 2, 0, -262137, 2, 0, -196601, 2, 0, -131065, 2, 0, -983032, 2, 0, -917496, 2, 0, -851960, 2, 0, -786424, 2, 0, -720888, 2, 0, -655352, 2, 0, -589816, 2, 0, -524280, 2, 0, -458744, 2, 0, -393208, 2, 0, -327672, 2, 0, -262136, 2, 0, -196600, 2, 0, -131064, 2, 0, -983031, 2, 0, -917495, 2, 0, -851959, 2, 0, -786423, 2, 0, -720887, 2, 0, -655351, 2, 0, -589815, 2, 0, -524279, 2, 0, -458743, 2, 0, -393207, 2, 0, -327671, 2, 0, -262135, 2, 0, -196599, 2, 0, -131063, 2, 0, -983030, 2, 0, -917494, 2, 0, -851958, 2, 0, -786422, 2, 0, -720886, 2, 0, -655350, 2, 0, -589814, 2, 0, -524278, 2, 0, -458742, 2, 0, -393206, 2, 0, -327670, 2, 0, -262134, 2, 0, -196598, 2, 0, -131062, 2, 0, -983029, 2, 0, -917493, 2, 0, -851957, 2, 0, -786421, 2, 0, -720885, 2, 0, -655349, 2, 0, -589813, 2, 0, -524277, 2, 0, -458741, 2, 0, -393205, 2, 0, -327669, 2, 0, -262133, 2, 0, -196597, 2, 0, -131061, 2, 0, -983028, 2, 0, -917492, 2, 0, -851956, 2, 0, -786420, 2, 0, -720884, 2, 0, -655348, 2, 0, -589812, 2, 0, -524276, 2, 0, -458740, 2, 0, -393204, 2, 0, -327668, 2, 0, -262132, 2, 0, -196596, 2, 0, -131060, 2, 0, -983053, 1, 196608)
+
+[node name="Water" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Water"]
+position = Vector2(0, 600)
+sprite_frames = ExtResource("2_hyitk")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Water"]
+stream = ExtResource("3_l2d3u")
+volume_db = 0.937
+autoplay = true
+attenuation = 8.28209
+
+[node name="8x8 Tilemap" type="TileMap" parent="."]
+tile_set = ExtResource("4_uugjh")
+format = 2
+layer_0/tile_data = PackedInt32Array(-393214, 1, 131072, -393213, 1, 65536, -393212, 1, 131072, -393215, 1, 196608, -393211, 1, 262144, -458743, 3, 196608, -458742, 3, 196608, -458744, 3, 131072, -458741, 3, 131072, -524311, 1, 131072, -524310, 1, 131072, -524309, 1, 131072, -524308, 1, 131072, -524307, 1, 131072, -524306, 1, 131072, -524305, 1, 131072, -524304, 1, 131072, -524303, 1, 131072, -524302, 1, 131072, -524301, 1, 131072, -524300, 1, 131072, -524299, 1, 131072, -524298, 1, 131072, -524297, 1, 131072, -524296, 1, 131072, -524295, 1, 131072, -524294, 1, 131072, -524293, 1, 131072, -524292, 1, 131072, -524291, 1, 131072, -262128, 2, 65536, -262127, 2, 65536, -262126, 2, 65536, -262125, 2, 65536, -262124, 2, 65536, -262123, 2, 65536, -262122, 2, 65536, -262121, 2, 65536, -458740, 3, 196608, -458739, 3, 196608, -458745, 3, 65536, -458738, 3, 262144)
+
+[node name="Foreground Tilemap" type="TileMap" parent="."]
+tile_set = ExtResource("1_kic2y")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65536, 0, 393216, -13, 0, 393216, -12, 0, 393216, -14, 0, 196608, -11, 0, 393216, -10, 0, 393216, -8, 0, 393216, -7, 0, 393216, -6, 0, 393216, -5, 0, 393216, -4, 0, 393216, -9, 0, 393216, -3, 0, 393216, -65534, 0, 393216, -65533, 0, 393216, -65529, 0, 393216, -65528, 0, 393216, -65526, 0, 393216, -65524, 0, 393216, -65523, 0, 196608, -2, 0, 393216, -1, 0, 393216, -65535, 0, 393216, -65532, 0, 393216, -65531, 0, 393216, -65530, 0, 393216, -65527, 0, 393216, -65525, 0, 393216, -720910, 0, 327680, -655374, 0, 327680, -589838, 0, 327680, -524302, 0, 327680, -458766, 0, 327680, -393230, 0, 327680, -327694, 0, 327680, -262158, 0, 327680, -196622, 0, 262144, -131086, 0, 262144, -65550, 0, 262144, -1048563, 1, 65536, -983027, 0, 65536, -917491, 0, 65536, -851955, 0, 65536, -786419, 0, 65536, -720883, 0, 65536, -655347, 0, 65536, -589811, 0, 65536, -524275, 0, 65536, -458739, 0, 65536, -393203, 0, 65536, -327667, 0, 65536, -262131, 0, 65536, -196595, 0, 65536, -131059, 0, 65536, -983054, 1, 65536, -983052, 1, 65536, -983051, 1, 65536, -983050, 1, 65536, -983049, 1, 65536, -983048, 1, 65536, -983047, 1, 65536, -983046, 1, 65536, -983045, 1, 65536, -983044, 1, 65536, -983043, 1, 65536, -983042, 1, 65536, -983041, 1, 65536, -1048576, 1, 65536, -1048575, 1, 65536, -1048574, 1, 65536, -1048573, 1, 65536, -1048572, 1, 65536, -1048571, 1, 65536, -1048570, 1, 65536, -1048569, 1, 65536, -1048568, 1, 65536, -1048567, 1, 65536, -1048566, 1, 65536, -1048565, 1, 65536, -1048564, 1, 65536, -917518, 0, 327680, -851982, 0, 327680, -786446, 0, 327680, -1048590, 1, 65536, -1114126, 1, 65536, -1179662, 1, 65536, -1245198, 1, 65536, -1114099, 1, 65536, -1179635, 1, 65536, -1245171, 1, 65536, -1310707, 1, 65536, -1376243, 1, 65536, -1441779, 1, 65536, -1507315, 1, 65536, -15, 0, 196608, -65551, 0, 196608, -131087, 0, 196608, -196623, 0, 196608, -262159, 0, 196608, -983055, 0, 196608, -917519, 0, 196608, -851983, 0, 196608, -786447, 0, 196608, -720911, 0, 196608, -655375, 0, 196608, -589839, 0, 196608, -524303, 0, 196608, -458767, 0, 196608, -393231, 0, 196608, -327695, 0, 196608, -1048562, 0, 196608, -983026, 0, 196608, -917490, 0, 196608, -851954, 0, 196608, -786418, 0, 196608, -720882, 0, 196608, -655346, 0, 196608, -589810, 0, 196608, -524274, 0, 196608, -458738, 0, 196608, -393202, 0, 196608, -327666, 0, 196608, -262130, 0, 196608, -196594, 0, 196608, -131058, 0, 196608, -65522, 0, 196608)
+
+[node name="Player" parent="." instance=ExtResource("5_1fll1")]
+position = Vector2(-6, -70)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_4pvxy")
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_5j7qj")
+volume_db = -10.306
+autoplay = true
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_8joq4")
+volume_db = -11.243
+autoplay = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-104, -152)
+texture = ExtResource("9_0ohbs")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-104, -151)
+shadow_enabled = true
+texture = ExtResource("10_gdind")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -212.0
+offset_top = -404.0
+offset_right = 236.0
+offset_bottom = -84.0
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 19.0
+offset_right = 409.0
+offset_bottom = 147.0
+color = Color(0.180392, 1, 1, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 172.0
+offset_right = 412.0
+offset_bottom = 300.0
+color = Color(0.180392, 1, 1, 1)
+
+[node name="Pause Menu" type="Control" parent="." node_paths=PackedStringArray("ButtonSound", "menuSound")]
+visible = false
+top_level = true
+light_mask = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -228.0
+offset_top = -409.0
+offset_right = -188.0
+offset_bottom = -369.0
+script = ExtResource("11_l2ftg")
+ButtonSound = NodePath("AudioStreamPlayer")
+menuSound = NodePath("AudioStreamPlayer2")
+
+[node name="TextureRect" type="TextureRect" parent="Pause Menu"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("12_jw8vp")
+
+[node name="Resume Button" type="TextureButton" parent="Pause Menu"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 34.0
+offset_right = 415.0
+offset_bottom = 162.0
+texture_normal = ExtResource("13_xrdjn")
+texture_pressed = ExtResource("14_knlks")
+texture_hover = ExtResource("14_knlks")
+
+[node name="Menu Button" type="TextureButton" parent="Pause Menu"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 175.0
+offset_right = 415.0
+offset_bottom = 303.0
+texture_normal = ExtResource("15_nxtdm")
+texture_pressed = ExtResource("16_fgkb0")
+texture_hover = ExtResource("16_fgkb0")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Pause Menu"]
+stream = ExtResource("17_0428e")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Pause Menu"]
+stream = ExtResource("18_mla3j")

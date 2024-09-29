@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://bv8bfropfa7q5"]
+
+[ext_resource type="Script" path="res://Scripts/CrumblyPlatform.cs" id="1_ij6ro"]
+[ext_resource type="Texture2D" uid="uid://b5poq6r6gdx4u" path="res://Sprites/Tiles/CrumbledPlatform_MiddleRight_001.png" id="2_t0nm1"]
+[ext_resource type="Shape2D" uid="uid://dvnc57rj8vec3" path="res://Scene Nodes/Object Nodes/Tiles/Templates/16x16Square.tres" id="3_8vsrl"]
+[ext_resource type="OccluderPolygon2D" uid="uid://cw4yypop555po" path="res://Scene Nodes/Object Nodes/Tiles/Templates/16x16Occluder.tres" id="4_a0nd5"]
+[ext_resource type="Texture2D" uid="uid://tdktcudwac5v" path="res://Sprites/Tiles/CrumblyPlatform_MiddleRight_001.png" id="5_0o33r"]
+[ext_resource type="AudioStream" uid="uid://cjvrl2goxwnjo" path="res://Audio/Landingbreak.wav" id="6_ercqc"]
+[ext_resource type="AudioStream" uid="uid://cb1fmp3hf4s1" path="res://Audio/RockCollapse.wav" id="7_ihjdx"]
+
+[node name="Template16x16TileCollide" type="StaticBody2D"]
+script = ExtResource("1_ij6ro")
+crumbledTexture = ExtResource("2_t0nm1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("3_8vsrl")
+debug_color = Color(1, 1, 1, 0)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = ExtResource("4_a0nd5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("5_0o33r")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(1.1, 1.1)
+shape = ExtResource("3_8vsrl")
+debug_color = Color(1, 1, 1, 0)
+
+[node name="FirstCrumbleSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ercqc")
+volume_db = -17.802
+pitch_scale = 0.5
+
+[node name="FullyCrumbleSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_ihjdx")
+volume_db = -25.298

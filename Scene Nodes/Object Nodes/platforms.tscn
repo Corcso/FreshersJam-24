@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://i0ada3vcdd8v"]
+
+[ext_resource type="Script" path="res://Scripts/PlatformScript.cs" id="1_kclvg"]
+[ext_resource type="Texture2D" uid="uid://dysdywn8kfrxf" path="res://Sprites/placeholderPlatformSprite (Feel free to replace).png" id="2_y5tru"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q0rm1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_y5tru")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Platforms" type="Node2D"]
+
+[node name="Platform" type="StaticBody2D" parent="."]
+script = ExtResource("1_kclvg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Platform"]
+position = Vector2(276, 216)
+scale = Vector2(0.630604, 0.649533)
+sprite_frames = SubResource("SpriteFrames_q0rm1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]

@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://b28ofu6e4wfdv"]
+
+[ext_resource type="Texture2D" uid="uid://d3ite2ghy4saf" path="res://Sprites/Tiles/BrickBackdrop_001.png" id="1_awags"]
+
+[resource]
+atlas = ExtResource("1_awags")
+region = Rect2(0, 0, 32, 32)

@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://d1c1b1w5bmtxp"]
+
+[ext_resource type="Script" path="res://Scripts/player.cs" id="1_t4ycn"]
+[ext_resource type="SpriteFrames" uid="uid://bg24qitdxkvoe" path="res://Sprites/Character/CharacterAnimation.tres" id="2_r8kmj"]
+[ext_resource type="AudioStream" uid="uid://cmjixi2koq2p2" path="res://Audio/Jump.wav" id="3_vccq4"]
+[ext_resource type="AudioStream" uid="uid://bqqfok1p2dmip" path="res://Audio/Dash.mp3" id="4_jr018"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mvwsw"]
+radius = 16.0
+height = 40.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ngd66"]
+
+[node name="Player" type="RigidBody2D" node_paths=PackedStringArray("jumpSound", "dashSound", "doubleJumpSound")]
+lock_rotation = true
+max_contacts_reported = 8
+contact_monitor = true
+script = ExtResource("1_t4ycn")
+jumpSound = NodePath("AudioStreamPlayer")
+dashSound = NodePath("AudioStreamPlayer2")
+doubleJumpSound = NodePath("AudioStreamPlayer3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.0999999, 4.76837e-07)
+sprite_frames = ExtResource("2_r8kmj")
+animation = &"Dash"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vccq4")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_jr018")
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vccq4")
+pitch_scale = 1.43
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_mvwsw")
+
+[node name="FloorCaster" type="ShapeCast2D" parent="."]
+position = Vector2(0, 14)
+shape = SubResource("RectangleShape2D_ngd66")
+target_position = Vector2(0, 0)
