@@ -199,25 +199,29 @@ public partial class player : RigidBody2D
 		if (gameManager.currentGameState == GameManager.GameState.DEAD)
 		{
 
-			
 
-			//Vector2 pos = Position;
+
+			Vector2 pos = Position;
+
+			Vector2 vel = LinearVelocity;
 
 			GravityScale -= 22.5f * (float)delta;
 			GD.Print(GravityScale);
 
 			//vel.Y -= gravity * (float)delta;
 
-			
-			
-   //         if (Position.X <= water.Position.Y)
-   //         {
 
-   //             pos.Y = water.Position.Y;
 
-   //         }
+			if (Position.X > water.Position.Y)
+			{
 
-			//Position = pos;
+				pos.Y = water.Position.Y;
+
+			}
+
+			Position = pos;
+
+			LinearVelocity = vel;
 
 		}
     }
