@@ -50,3 +50,9 @@ target_position = Vector2(-30, 30)
 
 [node name="deathArea" type="RayCast2D" parent="."]
 target_position = Vector2(0, -32)
+
+[node name="leftWallCheck" type="RayCast2D" parent="."]
+target_position = Vector2(-30, 0)
+
+[node name="rightWallCheck" type="RayCast2D" parent="."]
+target_position = Vector2(30, 0)

@@ -18,6 +18,8 @@ public partial class enemyBasic : RigidBody2D
     public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
     RayCast2D deathArea;
+    RayCast2D leftWallCheck;
+    RayCast2D rightWallCheck;
 
 
     AnimatedSprite2D animatedSprite;
@@ -31,6 +33,8 @@ public partial class enemyBasic : RigidBody2D
         animatedSprite = GetNode<AnimatedSprite2D>("./AnimatedSprite2D");
 
         deathArea = GetNode<RayCast2D>("deathArea");
+        leftWallCheck = GetNode<RayCast2D>("leftWallCheck");
+        rightWallCheck = GetNode<RayCast2D>("rightWallCheck");
         deathArea.ExcludeParent = true;
     }
 
@@ -55,12 +59,14 @@ public partial class enemyBasic : RigidBody2D
 			{
 				
 				if (!lfoot.IsColliding() && rfoot.IsColliding()) moveLeft = !moveLeft;
-			}
+                if (leftWallCheck.IsColliding() && !(leftWallCheck.GetCollider() is player)) moveLeft = !moveLeft;
+            }
 			else
 			{
 				
 				if (!rfoot.IsColliding() && lfoot.IsColliding()) moveLeft = !moveLeft;
-			}
+                if (rightWallCheck.IsColliding() && !(rightWallCheck.GetCollider() is player)) moveLeft = !moveLeft;
+            }
 				
 		}
 		if(rfoot.IsColliding() || lfoot.IsColliding()) velocity.X = (moveLeft ? -1 : 1) * moveVelocity;
