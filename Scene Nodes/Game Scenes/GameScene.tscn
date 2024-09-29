@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://yqchk23c3xa2"]
+[gd_scene load_steps=33 format=3 uid="uid://yqchk23c3xa2"]
 
 [ext_resource type="Script" path="res://PlayerCamera.cs" id="1_jtm4b"]
 [ext_resource type="TileSet" uid="uid://b1eflxxec7fbj" path="res://Scene Nodes/Object Nodes/Tiles/Tileset16.tres" id="1_sknvf"]
@@ -27,6 +27,7 @@
 [ext_resource type="AudioStream" uid="uid://dvkf2onvdg3tw" path="res://Audio/Click.mp3" id="25_p4c6g"]
 [ext_resource type="AudioStream" uid="uid://c5esah0ntcx3m" path="res://Audio/Menu.wav" id="26_m8um7"]
 [ext_resource type="OccluderPolygon2D" uid="uid://1u6830b8js2a" path="res://Scene Nodes/Object Nodes/Tiles/Templates/32x32Occluder.tres" id="27_aajmk"]
+[ext_resource type="Texture2D" uid="uid://cjcgu2xvuyum4" path="res://Sprites/Tiles/Well_001.png" id="28_pusdf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wanrf"]
 size = Vector2(832, 20)
@@ -592,3 +593,7 @@ occluder = ExtResource("27_aajmk")
 position = Vector2(583, -975)
 scale = Vector2(26.56, 1)
 occluder = ExtResource("27_aajmk")
+
+[node name="Well001" type="Sprite2D" parent="."]
+position = Vector2(0, -4913)
+texture = ExtResource("28_pusdf")
