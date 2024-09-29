@@ -7,7 +7,7 @@ public partial class player : RigidBody2D
 
 	[Export]
 	public float moveVelocity = 100.0f;
-	public float dashVelocity = 1000.0f;
+	public float dashVelocity = 700.0f;
 	public float jumpVelocity= -400.0f;
 
 	float timeDash = 0;
@@ -31,6 +31,8 @@ public partial class player : RigidBody2D
 
 	ShapeCast2D floorChecker;
 	GameManager gameManager;
+	Area2D water;
+	//Control deathScreen;
 
     // Get the gravity from the project settings to be synced with RigidBody nodes.
     public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
@@ -61,8 +63,12 @@ public partial class player : RigidBody2D
         floorChecker = GetNode<ShapeCast2D>("./FloorCaster");
 		floorChecker.ExcludeParent = true;
 
+		water = GetNode<Area2D>("../Water");
+		//deathScreen = GetNode<Control>("../Death Screen");
+
 		spriteAnimator = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		spriteAnimator.Play("Idle");
+		//this.Position = 
     }
 
     public override void _IntegrateForces(PhysicsDirectBodyState2D state)
@@ -73,17 +79,41 @@ public partial class player : RigidBody2D
 
 
 		Vector2 velocity = state.LinearVelocity;
-		//velocity.Y += gravity * (float)delta;
+        //velocity.Y += gravity * (float)delta;
 
-		if (gameManager.currentGameState == GameManager.GameState.DEAD)
+        if (this.Position.Y < -4855 && (this.Position.X > 71 || this.Position.X < -72) && floorChecker.IsColliding() && gameManager.currentGameState != GameManager.GameState.WON)
+        {
+            //Player completing level
+            GD.Print("WIN!");
+            gameManager.currentGameState = GameManager.GameState.WON;
+
+        }
+
+        if (gameManager.currentGameState == GameManager.GameState.DEAD)
 		{
+            if (velocity.Y <= 0)
+            {
 
-			return;
+                velocity.Y = 0;
+				
+            }
+			state.LinearVelocity = velocity;
+            return;
 
 		}
 
 		// Default animation to idle
 		validStates = AnimationStates.ANIM_IDLE;
+
+		if (gameManager.currentGameState == GameManager.GameState.WON)
+		{
+			moveVelocity = 0.0f;
+			dashVelocity = 0.0f;
+			GD.Print("WINNER!");
+		}
+
+        // Default animation to idle
+       //spriteAnimator.Animation = "Idle";
 
         float directionX = Input.GetAxis("Left", "Right");
 		// First set us walking if we are this is the lowest priority animation
@@ -231,5 +261,36 @@ public partial class player : RigidBody2D
 			else thisFramesAnimationState = "Fall";
         }
 		return thisFramesAnimationState;
+
+    public override void _Process(double delta)
+    {
+		if (gameManager.currentGameState == GameManager.GameState.DEAD)
+		{
+
+
+
+			Vector2 pos = Position;
+
+			Vector2 vel = LinearVelocity;
+
+			GravityScale -= 22.5f * (float)delta;
+			//GD.Print(GravityScale);
+
+			//vel.Y -= gravity * (float)delta;
+
+
+
+			if (Position.X > water.Position.Y)
+			{
+
+				pos.Y = water.Position.Y;
+
+			}
+
+			Position = pos;
+
+			LinearVelocity = vel;
+
+		}
     }
 }

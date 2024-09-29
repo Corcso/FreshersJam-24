@@ -23,7 +23,7 @@ public partial class MainMenuControler : Control
 		MenuMusic.Playing = false;
 		gameManager.LoadGameScene();
 		gameManager.currentGameState = GameManager.GameState.PLAYING;
-		GD.Print("play pressed");
+		//GD.Print("play pressed");
 	}
 
 	public void _on_quit_button_pressed() {

@@ -17,7 +17,7 @@ public partial class TorchLight : Node2D
 	public override void _Process(double delta)
 	{
 		//var water = GetParent<Node2D>().GetNode<Node2D>("Water");
-		var water = GetNode<Node2D>("../Water");
+		var water = GetNode<Node2D>("../../Water");
 		if (water != null)
 		{
             PointLight2D torchLight = GetNode<PointLight2D>("TorchPointLight");
@@ -37,6 +37,8 @@ public partial class TorchLight : Node2D
                     var randomNum = new RandomNumberGenerator();
                     originalScale = currentScale;
                     desiredScale = 1.0f + (0.25f * Math.Sin(randomNum.RandfRange(0, 6.283f)));
+					//Debug.Print("scale reached, new scale = " + desiredScale.ToString());
+					//Debug.Print(currentScale.ToString());
                 }
 				//lerp
 				currentScale = originalScale + (desiredScale - originalScale) * lerpTime;

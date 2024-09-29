@@ -14,10 +14,14 @@ public partial class enemyBasic : RigidBody2D
     [Export]
     public bool edgeDetect = true;
 
+    AudioStreamPlayer2D deathNoise;
+
     // Get the gravity from the project settings to be synced with RigidBody nodes.
     public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
     RayCast2D deathArea;
+    RayCast2D leftWallCheck;
+    RayCast2D rightWallCheck;
 
 
     AnimatedSprite2D animatedSprite;
@@ -29,9 +33,14 @@ public partial class enemyBasic : RigidBody2D
         BodyEntered += (Node body) => Collision(body);
 
         animatedSprite = GetNode<AnimatedSprite2D>("./AnimatedSprite2D");
+        deathNoise = GetNode<AudioStreamPlayer2D>("./DeathNoise");
 
         deathArea = GetNode<RayCast2D>("deathArea");
+        leftWallCheck = GetNode<RayCast2D>("leftWallCheck");
+        rightWallCheck = GetNode<RayCast2D>("rightWallCheck");
         deathArea.ExcludeParent = true;
+
+        animatedSprite.Play("Walk");
     }
 
     public override void _IntegrateForces(PhysicsDirectBodyState2D state)
@@ -55,12 +64,14 @@ public partial class enemyBasic : RigidBody2D
 			{
 				
 				if (!lfoot.IsColliding() && rfoot.IsColliding()) moveLeft = !moveLeft;
-			}
+                if (leftWallCheck.IsColliding() && !(leftWallCheck.GetCollider() is player)) moveLeft = !moveLeft;
+            }
 			else
 			{
 				
 				if (!rfoot.IsColliding() && lfoot.IsColliding()) moveLeft = !moveLeft;
-			}
+                if (rightWallCheck.IsColliding() && !(rightWallCheck.GetCollider() is player)) moveLeft = !moveLeft;
+            }
 				
 		}
 		if(rfoot.IsColliding() || lfoot.IsColliding()) velocity.X = (moveLeft ? -1 : 1) * moveVelocity;
@@ -84,8 +95,8 @@ public partial class enemyBasic : RigidBody2D
         if (possiblePlayer != null && !dead)
         {
             //Debug.Print("yep thats the player");
-            Debug.Print(possiblePlayer.GlobalPosition.Y.ToString() + ", " + GlobalPosition.Y.ToString());
-            Debug.Print(possiblePlayer.LinearVelocity.Y.ToString() + ", " + LinearVelocity.Y.ToString());
+            //Debug.Print(possiblePlayer.GlobalPosition.Y.ToString() + ", " + GlobalPosition.Y.ToString());
+            //Debug.Print(possiblePlayer.LinearVelocity.Y.ToString() + ", " + LinearVelocity.Y.ToString());
             //check if 
             if (deathArea.IsColliding() && deathArea.GetCollider() is player/*possiblePlayer.GlobalPosition.Y < GlobalPosition.Y && (possiblePlayer.LinearVelocity.Y > LinearVelocity.Y || (possiblePlayer.LinearVelocity.Y >= LinearVelocity.Y && LinearVelocity.Y != 0))*/)
             {
@@ -93,12 +104,13 @@ public partial class enemyBasic : RigidBody2D
                 dead = true;
                 animatedSprite.Animation = "Dead";
                 CollisionLayer = 0;
+                deathNoise.Play();
             }
             else
             {
                 // Bounce back player
                 float launchDirectionX = (possiblePlayer.GlobalPosition.X - GlobalPosition.X) < 0 ? -1 : 1;
-                GD.Print(launchDirectionX.ToString());
+                //GD.Print(launchDirectionX.ToString());
                 possiblePlayer.ApplyCentralImpulse(new Vector2(launchDirectionX, -1f) * 400);
             }
         }
