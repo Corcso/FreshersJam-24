@@ -6,6 +6,9 @@ public partial class PauseMenuControler : Control
 	GameManager gameManager;
     BaseButton resumeButton;
     BaseButton menuButton;
+
+	[Export] AudioStreamPlayer ButtonSound;
+	[Export] AudioStreamPlayer menuSound;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -17,7 +20,10 @@ public partial class PauseMenuControler : Control
 
 		resumeButton.Pressed += () => ResumeGame();
 		menuButton.Pressed += () => ReturnToMenu();
-	}
+
+		VisibilityChanged += () => MyVisibilityChanged();
+
+    }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
@@ -25,11 +31,20 @@ public partial class PauseMenuControler : Control
 	}
 
 	private void ResumeGame() { 
+		ButtonSound.Play();
 		gameManager.UnpauseGame();
 	}
 
     private void ReturnToMenu()
     {
+		ButtonSound.Play();
+        gameManager.UnpauseGame();
         gameManager.LoadMenuScene();
     }
+
+	private void MyVisibilityChanged() {
+		menuSound.Play();
+		if (Visible) { }
+		else { }
+	}
 }

@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://orta4rw6fhjy"]
+
+[ext_resource type="Script" path="res://Scripts/TorchLight.cs" id="1_bfbcs"]
+[ext_resource type="Texture2D" uid="uid://bmsj6so4xr0su" path="res://Sprites/Decoration/TorchSheet.png" id="1_p0fqq"]
+[ext_resource type="Texture2D" uid="uid://ddkre2gm1iwtw" path="res://Sprites/Decoration/Light Sprites/OrangePointLight.png" id="2_lyr8e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvex5"]
+atlas = ExtResource("1_p0fqq")
+region = Rect2(0, 0, 8, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pea4m"]
+atlas = ExtResource("1_p0fqq")
+region = Rect2(8, 0, 8, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aamb3"]
+atlas = ExtResource("1_p0fqq")
+region = Rect2(16, 0, 8, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pidpm"]
+atlas = ExtResource("1_p0fqq")
+region = Rect2(24, 0, 8, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o0l6d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvex5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pea4m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aamb3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pea4m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pidpm")
+}],
+"loop": true,
+"name": &"extinguish",
+"speed": 5.0
+}]
+
+[node name="TorchLight" type="Node2D"]
+script = ExtResource("1_bfbcs")
+
+[node name="TorchAnimate" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_o0l6d")
+frame_progress = 0.327189
+
+[node name="TorchPointLight" type="PointLight2D" parent="."]
+color = Color(1, 0.660569, 0.487714, 1)
+energy = 1.58
+shadow_enabled = true
+shadow_filter = 1
+texture = ExtResource("2_lyr8e")

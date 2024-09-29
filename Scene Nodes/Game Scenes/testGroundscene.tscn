@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b0svlru38j51x"]
 
 [ext_resource type="PackedScene" uid="uid://cw3c2vhsxh3e" path="res://Scene Nodes/Object Nodes/player.tscn" id="1_ko8sl"]
-[ext_resource type="PackedScene" uid="uid://cm1yr40el67t1" path="res://Scene Nodes/Object Nodes/enemyBasic.tscn" id="2_nxv3f"]
+[ext_resource type="PackedScene" uid="uid://d1l80rdajc73g" path="res://Scene Nodes/Object Nodes/enemyBasic.tscn" id="2_nxv3f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kcbw6"]
 size = Vector2(779, 23)
@@ -20,3 +20,4 @@ debug_color = Color(0, 0.6, 0.701961, 0.490196)
 
 [node name="enemyBasic" parent="." instance=ExtResource("2_nxv3f")]
 position = Vector2(367, 111)
+moveLeft = true
