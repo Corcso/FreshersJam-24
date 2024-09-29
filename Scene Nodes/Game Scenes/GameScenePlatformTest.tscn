@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://fua1jkit2enw"]
+[gd_scene load_steps=17 format=3 uid="uid://fua1jkit2enw"]
 
 [ext_resource type="TileSet" uid="uid://b1eflxxec7fbj" path="res://Scene Nodes/Object Nodes/Tiles/Tileset16.tres" id="1_kic2y"]
 [ext_resource type="SpriteFrames" path="res://Sprites/WaterAnimation.tres" id="2_hyitk"]
@@ -10,6 +10,12 @@
 [ext_resource type="AudioStream" uid="uid://omv8206c0shj" path="res://Audio/Calm music.wav" id="8_8joq4"]
 [ext_resource type="Texture2D" uid="uid://cw7r5ejci3nt" path="res://Sprites/Decoration/BlueMushroom_001.png" id="9_0ohbs"]
 [ext_resource type="Texture2D" uid="uid://bjrw36rsrmkri" path="res://Sprites/Decoration/Light Sprites/BluePointLight.png" id="10_gdind"]
+[ext_resource type="Script" path="res://Scripts/PauseMenuControler.cs" id="11_l2ftg"]
+[ext_resource type="Texture2D" uid="uid://ccvpjihensbps" path="res://Sprites/UI/PauseBackground.png" id="12_jw8vp"]
+[ext_resource type="Texture2D" uid="uid://c2lrtvs7lc14" path="res://Sprites/UI/Resume Button.png" id="13_xrdjn"]
+[ext_resource type="Texture2D" uid="uid://bwsp8ocgpl8mg" path="res://Sprites/UI/Resume Button Pressed.png" id="14_knlks"]
+[ext_resource type="Texture2D" uid="uid://c2j624a1dign1" path="res://Sprites/UI/Menu Button.png" id="15_nxtdm"]
+[ext_resource type="Texture2D" uid="uid://ejxytosbn0oj" path="res://Sprites/UI/Menu Button Pressed.png" id="16_fgkb0"]
 
 [node name="GameScene" type="Node2D"]
 modulate = Color(0.509286, 0.509286, 0.509286, 1)
@@ -79,6 +85,7 @@ offset_right = 236.0
 offset_bottom = -84.0
 
 [node name="ColorRect2" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
 offset_left = 25.0
 offset_top = 19.0
 offset_right = 409.0
@@ -86,8 +93,47 @@ offset_bottom = 147.0
 color = Color(0.180392, 1, 1, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
 offset_left = 28.0
 offset_top = 172.0
 offset_right = 412.0
 offset_bottom = 300.0
 color = Color(0.180392, 1, 1, 1)
+
+[node name="Pause Menu" type="Control" parent="."]
+visible = false
+top_level = true
+light_mask = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -228.0
+offset_top = -409.0
+offset_right = -188.0
+offset_bottom = -369.0
+script = ExtResource("11_l2ftg")
+
+[node name="TextureRect" type="TextureRect" parent="Pause Menu"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("12_jw8vp")
+
+[node name="Resume Button" type="TextureButton" parent="Pause Menu"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 34.0
+offset_right = 415.0
+offset_bottom = 162.0
+texture_normal = ExtResource("13_xrdjn")
+texture_pressed = ExtResource("14_knlks")
+texture_hover = ExtResource("14_knlks")
+
+[node name="Menu Button" type="TextureButton" parent="Pause Menu"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 175.0
+offset_right = 415.0
+offset_bottom = 303.0
+texture_normal = ExtResource("15_nxtdm")
+texture_pressed = ExtResource("16_fgkb0")
+texture_hover = ExtResource("16_fgkb0")
