@@ -4,6 +4,7 @@ using System;
 public partial class MainMenuControler : Control
 {
 	GameManager gameManager;
+	[Export] AudioStreamPlayer buttonsound;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -17,11 +18,13 @@ public partial class MainMenuControler : Control
 	}
 
     public void _on_begin_button_pressed() {
+		buttonsound.Play();
 		gameManager.LoadGameScene();
 		gameManager.currentGameState = GameManager.GameState.PLAYING;
 	}
 
 	public void _on_quit_button_pressed() {
+		buttonsound.Play();
 		GetTree().Quit();
 	}
 }

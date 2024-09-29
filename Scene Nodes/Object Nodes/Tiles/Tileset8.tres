@@ -11,10 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://b3y4v5lyqtuvp" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/BouncePlatformCenter2.tscn" id="9_pc16b"]
 [ext_resource type="PackedScene" uid="uid://i721cigdimlt" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/BouncePlatformLeft.tscn" id="10_tvlxy"]
 [ext_resource type="PackedScene" uid="uid://cglfjw6x7kk63" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/BouncePlatformRight.tscn" id="11_xrtk7"]
-[ext_resource type="PackedScene" uid="uid://b181dr1xq7hu0" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/CrumblyPlatformLeft.tscn" id="12_tp7on"]
-[ext_resource type="PackedScene" uid="uid://d1jpvj0j7bt8n" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/CrumblyPlatformCenter1.tscn" id="13_pmhhv"]
-[ext_resource type="PackedScene" uid="uid://bv8bfropfa7q5" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/CrumblyPlatformCenter2.tscn" id="14_b1l6j"]
-[ext_resource type="PackedScene" uid="uid://b1vctlrd713db" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/CrumblyPlatformRight.tscn" id="15_c5ntx"]
+[ext_resource type="PackedScene" uid="uid://hdio8f86430h" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/CrumblyPlatformLeft.tscn" id="12_tp7on"]
+[ext_resource type="PackedScene" uid="uid://b35lm1vdic3g4" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/CrumblyPlatformCenter1.tscn" id="13_pmhhv"]
+[ext_resource type="PackedScene" uid="uid://c07lbgs4oj025" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/CrumblyPlatformCenter2.tscn" id="14_b1l6j"]
+[ext_resource type="PackedScene" uid="uid://dvs232boyjj2o" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/CrumblyPlatformRight.tscn" id="15_c5ntx"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_fcmb2"]
 resource_name = "Debug"

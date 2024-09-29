@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cm1yr40el67t1"]
+[gd_scene load_steps=7 format=3 uid="uid://d1l80rdajc73g"]
 
 [ext_resource type="Script" path="res://Scripts/enemyBasic.cs" id="1_rxl14"]
 [ext_resource type="Texture2D" uid="uid://bim5jj0d1jhs7" path="res://Sprites/tempgoomba.png" id="2_uqewy"]
@@ -47,3 +47,6 @@ target_position = Vector2(30, 30)
 
 [node name="leftFoot" type="RayCast2D" parent="."]
 target_position = Vector2(-30, 30)
+
+[node name="deathArea" type="RayCast2D" parent="."]
+target_position = Vector2(0, -32)
