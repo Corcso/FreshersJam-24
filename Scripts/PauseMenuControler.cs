@@ -38,6 +38,7 @@ public partial class PauseMenuControler : Control
     private void ReturnToMenu()
     {
 		ButtonSound.Play();
+        gameManager.UnpauseGame();
         gameManager.LoadMenuScene();
     }
 

@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=20 format=3 uid="uid://hpcxllsil4j"]
+[gd_resource type="TileSet" load_steps=23 format=3 uid="uid://hpcxllsil4j"]
 
 [ext_resource type="PackedScene" uid="uid://4k86o2v5pste" path="res://Scene Nodes/Object Nodes/Tiles/Debug/DebugPlatformCenter.tscn" id="1_08hqu"]
 [ext_resource type="PackedScene" uid="uid://bwdkut0kouyrs" path="res://Scene Nodes/Object Nodes/Tiles/Debug/DebugPlatformLeft.tscn" id="2_s17mk"]
@@ -11,10 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://b3y4v5lyqtuvp" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/BouncePlatformCenter2.tscn" id="9_pc16b"]
 [ext_resource type="PackedScene" uid="uid://i721cigdimlt" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/BouncePlatformLeft.tscn" id="10_tvlxy"]
 [ext_resource type="PackedScene" uid="uid://cglfjw6x7kk63" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/BouncePlatformRight.tscn" id="11_xrtk7"]
-[ext_resource type="PackedScene" uid="uid://b181dr1xq7hu0" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/CrumblyPlatformLeft.tscn" id="12_tp7on"]
-[ext_resource type="PackedScene" uid="uid://d1jpvj0j7bt8n" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/CrumblyPlatformCenter1.tscn" id="13_pmhhv"]
-[ext_resource type="PackedScene" uid="uid://bv8bfropfa7q5" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/CrumblyPlatformCenter2.tscn" id="14_b1l6j"]
-[ext_resource type="PackedScene" uid="uid://b1vctlrd713db" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/CrumblyPlatformRight.tscn" id="15_c5ntx"]
+[ext_resource type="PackedScene" uid="uid://hdio8f86430h" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/CrumblyPlatformLeft.tscn" id="12_tp7on"]
+[ext_resource type="PackedScene" uid="uid://b35lm1vdic3g4" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/CrumblyPlatformCenter1.tscn" id="13_pmhhv"]
+[ext_resource type="PackedScene" uid="uid://c07lbgs4oj025" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/CrumblyPlatformCenter2.tscn" id="14_b1l6j"]
+[ext_resource type="PackedScene" uid="uid://dvs232boyjj2o" path="res://Scene Nodes/Object Nodes/Tiles/Platforms/CrumblyPlatformRight.tscn" id="15_c5ntx"]
+[ext_resource type="PackedScene" uid="uid://orta4rw6fhjy" path="res://Scene Nodes/Object Nodes/Tiles/Decoration/TorchLight.tscn" id="16_8fmt8"]
+[ext_resource type="PackedScene" uid="uid://c733wdscp7130" path="res://Scene Nodes/Object Nodes/Tiles/Decoration/ShroomLight.tscn" id="17_10xn3"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_fcmb2"]
 resource_name = "Debug"
@@ -43,8 +45,14 @@ scenes/2/scene = ExtResource("13_pmhhv")
 scenes/3/scene = ExtResource("14_b1l6j")
 scenes/4/scene = ExtResource("15_c5ntx")
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_wcrsk"]
+resource_name = "Lighting"
+scenes/1/scene = ExtResource("16_8fmt8")
+scenes/2/scene = ExtResource("17_10xn3")
+
 [resource]
 sources/0 = SubResource("TileSetScenesCollectionSource_fcmb2")
 sources/1 = SubResource("TileSetScenesCollectionSource_dwacm")
 sources/2 = SubResource("TileSetScenesCollectionSource_6sjpf")
 sources/3 = SubResource("TileSetScenesCollectionSource_61vy0")
+sources/4 = SubResource("TileSetScenesCollectionSource_wcrsk")
