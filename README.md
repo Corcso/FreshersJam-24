@@ -1,4 +1,4 @@
-# [GAME NAME]
+# Oh Well
 ## Project For Freshers Jam 2024
 
 *Credits*
